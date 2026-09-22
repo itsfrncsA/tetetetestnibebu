@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import ScratchpadModal from './components/ScratchpadModal';
+import AuthModal from './components/AuthModal';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
 import ResultsPage from './pages/ResultsPage';
@@ -9,6 +10,19 @@ import DetailedAnswerReviewPage from './pages/DetailedAnswerReviewPage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home'); // 'home' | 'quiz' | 'results' | 'archive' | 'review'
+  
+  // Auth State
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('cpale_auth_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  // Examinee & Exam States
   const [examineeName, setExamineeName] = useState(() => {
     return localStorage.getItem('cpale_examinee_name') || 'Student';
   });
@@ -22,12 +36,23 @@ export default function App() {
   const [inspectSubmissionId, setInspectSubmissionId] = useState(null);
   const [inspectSubmissionData, setInspectSubmissionData] = useState(null);
 
-  // Save examinee name
+  // Sync examinee name when user logs in
   useEffect(() => {
-    if (examineeName) {
-      localStorage.setItem('cpale_examinee_name', examineeName);
+    if (currentUser && currentUser.role !== 'superadmin') {
+      setExamineeName(currentUser.name);
+      localStorage.setItem('cpale_examinee_name', currentUser.name);
     }
-  }, [examineeName]);
+  }, [currentUser]);
+
+  const handleAuthSuccess = (user) => {
+    setCurrentUser(user);
+    localStorage.setItem('cpale_auth_user', JSON.stringify(user));
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('cpale_auth_user');
+  };
 
   const handleStartExam = (config) => {
     setExamConfig(config);
@@ -61,6 +86,9 @@ export default function App() {
         setActivePage={setActivePage}
         examineeName={examineeName}
         setExamineeName={setExamineeName}
+        currentUser={currentUser}
+        onOpenAuth={() => setIsAuthModalOpen(true)}
+        onLogout={handleLogout}
         onOpenCalculator={() => setIsCalculatorOpen(true)}
       />
 
@@ -70,6 +98,8 @@ export default function App() {
           <HomePage 
             examineeName={examineeName}
             setExamineeName={setExamineeName}
+            currentUser={currentUser}
+            onOpenAuth={() => setIsAuthModalOpen(true)}
             onStartExam={handleStartExam}
             onNavigate={(page) => setActivePage(page)}
           />
@@ -94,6 +124,7 @@ export default function App() {
 
         {activePage === 'archive' && (
           <SubmissionsArchivePage 
+            currentUser={currentUser}
             onInspectSubmission={handleInspectSubmission}
             onStartNewExam={() => setActivePage('home')}
           />
@@ -112,6 +143,13 @@ export default function App() {
       <ScratchpadModal 
         isOpen={isCalculatorOpen}
         onClose={() => setIsCalculatorOpen(false)}
+      />
+
+      {/* Auth Modal (Login / Register / Superadmin) */}
+      <AuthModal 
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onAuthSuccess={handleAuthSuccess}
       />
     </div>
   );

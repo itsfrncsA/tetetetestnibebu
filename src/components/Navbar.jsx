@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-import { BookOpen, Award, History, Calculator, User, Sparkles, Heart } from 'lucide-react';
+import { BookOpen, Award, History, Calculator, User, Sparkles, Heart, LogIn, LogOut, ShieldCheck } from 'lucide-react';
 
-export default function Navbar({ activePage, setActivePage, examineeName, setExamineeName, onOpenCalculator }) {
+export default function Navbar({ 
+  activePage, 
+  setActivePage, 
+  examineeName, 
+  setExamineeName, 
+  currentUser,
+  onOpenAuth,
+  onLogout,
+  onOpenCalculator 
+}) {
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(examineeName);
 
@@ -13,6 +22,8 @@ export default function Navbar({ activePage, setActivePage, examineeName, setExa
     }
     setIsEditingName(false);
   };
+
+  const isSuperadmin = currentUser && (currentUser.role === 'superadmin' || currentUser.username === 'superadmin');
 
   return (
     <header className="navbar">
@@ -64,49 +75,47 @@ export default function Navbar({ activePage, setActivePage, examineeName, setExa
           </button>
         </nav>
 
-        {/* Examinee Profile Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          {isEditingName ? (
-            <form onSubmit={handleSaveName} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <input 
-                type="text"
-                value={tempName}
-                onChange={(e) => setTempName(e.target.value)}
-                autoFocus
-                placeholder="Examinee name..."
-                style={{
-                  background: '#1e293b',
-                  border: '1px solid #6366f1',
-                  color: '#fff',
-                  padding: '0.3rem 0.6rem',
-                  borderRadius: '6px',
-                  fontSize: '0.85rem',
-                  outline: 'none',
-                  width: '130px'
-                }}
-              />
-              <button 
-                type="submit" 
-                className="btn btn-primary" 
-                style={{ padding: '0.3rem 0.6rem', fontSize: '0.75rem' }}
-              >
-                Save
-              </button>
-            </form>
-          ) : (
-            <div 
-              className="examinee-pill" 
-              onClick={() => { setTempName(examineeName); setIsEditingName(true); }}
-              title="Click to edit examinee name"
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="examinee-avatar">
-                {examineeName ? examineeName.charAt(0).toUpperCase() : 'E'}
+        {/* Auth & User Profile Area */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+          
+          {currentUser ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <div className="examinee-pill" style={{ background: isSuperadmin ? 'rgba(99, 102, 241, 0.15)' : 'rgba(255, 255, 255, 0.06)', borderColor: isSuperadmin ? '#6366f1' : 'var(--border-color)' }}>
+                <div className="examinee-avatar" style={{ background: isSuperadmin ? 'linear-gradient(135deg, #6366f1, #a855f7)' : 'linear-gradient(135deg, #ec4899, #8b5cf6)' }}>
+                  {isSuperadmin ? '👑' : currentUser.name.charAt(0).toUpperCase()}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontWeight: 700, fontSize: '0.85rem', color: '#fff', lineHeight: '1.2' }}>
+                    {currentUser.name}
+                  </span>
+                  <span style={{ fontSize: '0.65rem', color: isSuperadmin ? '#a5b4fc' : '#94a3b8', fontWeight: 600 }}>
+                    {isSuperadmin ? 'Super Admin' : `@${currentUser.username}`}
+                  </span>
+                </div>
               </div>
-              <span style={{ fontWeight: 600 }}>{examineeName || 'Student'}</span>
-              <Heart size={12} color="#ec4899" fill="#ec4899" />
+
+              <button
+                onClick={onLogout}
+                className="nav-btn"
+                title="Sign Out"
+                style={{ padding: '0.4rem 0.6rem', color: '#f87171' }}
+              >
+                <LogOut size={16} />
+              </button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <button 
+                className="btn btn-primary"
+                onClick={onOpenAuth}
+                style={{ padding: '0.45rem 0.9rem', fontSize: '0.85rem' }}
+              >
+                <LogIn size={15} />
+                <span>Login / Register</span>
+              </button>
             </div>
           )}
+
         </div>
       </div>
     </header>
