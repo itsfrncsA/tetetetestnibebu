@@ -1,0 +1,889 @@
+{
+  "examTitle": "Philippine CPALE Practice Reviewer",
+  "version": "2026",
+  "totalQuestions": 50,
+  "subjects": [
+    {
+      "code": "FAR",
+      "name": "Financial Accounting and Reporting",
+      "questionCount": 10
+    },
+    {
+      "code": "AFAR",
+      "name": "Advanced Financial Accounting and Reporting",
+      "questionCount": 10
+    },
+    {
+      "code": "MAS",
+      "name": "Management Advisory Services",
+      "questionCount": 8
+    },
+    {
+      "code": "AUD",
+      "name": "Auditing",
+      "questionCount": 8
+    },
+    {
+      "code": "TAX",
+      "name": "Taxation",
+      "questionCount": 7
+    },
+    {
+      "code": "RFBT",
+      "name": "Regulatory Framework for Business Transactions",
+      "questionCount": 7
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "subject": "FAR",
+      "topic": "Cash and Cash Equivalents",
+      "difficulty": "Easy",
+      "question": "Which of the following items should be classified as a cash equivalent in the statement of financial position under PAS 7?",
+      "choices": {
+        "A": "A 1-year treasury note maturing in 2 months, purchased 10 months ago",
+        "B": "A 90-day time deposit acquired 30 days before its maturity date",
+        "C": "A 5-year redeemable preference share acquired 6 months before the mandatory redemption date",
+        "D": "Postdated checks received from customers awaiting the date of deposit"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PAS 7, cash equivalents are short-term, highly liquid investments that are readily convertible to known amounts of cash and subject to an insignificant risk of changes in value. An investment normally qualifies as a cash equivalent only when it has a short maturity of, say, three months or less from the date of acquisition. An asset with an original maturity of 90 days acquired near maturity qualifies.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 2,
+      "subject": "FAR",
+      "topic": "Inventories",
+      "difficulty": "Moderate",
+      "question": "Tarlac Company uses the lower of cost and net realizable value (LCNRV) applied on an item-by-item basis. At year-end, Product X has a cost of P120, an estimated selling price of P150, estimated costs to complete of P20, and estimated selling costs of P25. Product Y has a cost of P80, an estimated selling price of P90, and estimated selling costs of P15. What is the total carrying amount of inventory at year-end assuming 1,000 units of Product X and 500 units of Product Y are on hand?",
+      "choices": {
+        "A": "P142,500",
+        "B": "P145,000",
+        "C": "P160,000",
+        "D": "P137,500"
+      },
+      "correctAnswer": "A",
+      "explanation": "NRV of Product X = P150 - P20 - P25 = P105. Lower of cost (P120) and NRV (P105) is P105. NRV of Product Y = P90 - P15 = P75. Lower of cost (P80) and NRV (P75) is P75. Total inventory valuation = (1,000 * P105) + (500 * P75) = P105,000 + P37,500 = P142,500.",
+      "solution": "1. Product X NRV = P150 - P20 - P25 = P105.\n   Product X carrying unit value = min(P120, P105) = P105.\n   Total X = 1,000 units * P105 = P105,000.\n2. Product Y NRV = P90 - P15 = P75.\n   Product Y carrying unit value = min(P80, P75) = P75.\n   Total Y = 500 units * P75 = P37,500.\n3. Total Inventory = P105,000 + P37,500 = P142,500.",
+      "legalBasis": null
+    },
+    {
+      "id": 3,
+      "subject": "FAR",
+      "topic": "Receivables",
+      "difficulty": "Difficult",
+      "question": "On July 1, 2025, Manila Corp. factored P1,000,000 of trade accounts receivable with recourse to a financing institution. The factor assessed a 10% finance fee and withheld 5% of the total receivables to cover anticipated sales discounts and returns. The fair value of the recourse obligation was estimated at P25,000. Assuming the transaction qualifies as a sale under PFRS 9, how much net loss on factoring should Manila Corp. recognize in profit or loss on July 1, 2025?",
+      "choices": {
+        "A": "P100,000",
+        "B": "P125,000",
+        "C": "P150,000",
+        "D": "P175,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "The loss on factoring when derecognition is appropriate equals the finance charge plus the fair value of the recourse obligation. The factor's holdback (5% or P50,000) is a receivable from the factor, not part of the loss. Loss = Finance charge (10% of P1,000,000 = P100,000) + Recourse liability (P25,000) = P125,000.",
+      "solution": "Finance charge = P1,000,000 * 10% = P100,000.\nRecourse obligation = P25,000.\nLoss on factoring = P100,000 + P25,000 = P125,000.\nNote: Factor's holdback of P50,000 is recognized as Receivable from Factor.",
+      "legalBasis": null
+    },
+    {
+      "id": 4,
+      "subject": "FAR",
+      "topic": "Property, Plant and Equipment",
+      "difficulty": "Moderate",
+      "question": "On January 1, 2024, Cavite Company purchased a machine for P1,200,000 with an estimated useful life of 10 years and residual value of P0. Cavite uses straight-line depreciation. On January 1, 2026, the company revalued the machine to its fair value of P1,120,000. The remaining useful life was re-estimated at 8 years. What is the revaluation surplus to be credited in other comprehensive income on January 1, 2026, and what is the depreciation expense for the year 2026?",
+      "choices": {
+        "A": "Revaluation Surplus: P160,000; Depreciation Expense: P140,000",
+        "B": "Revaluation Surplus: P200,000; Depreciation Expense: P120,000",
+        "C": "Revaluation Surplus: P160,000; Depreciation Expense: P120,000",
+        "D": "Revaluation Surplus: P200,000; Depreciation Expense: P140,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Annual depreciation for 2024 and 2025 = P1,200,000 / 10 = P120,000 per year. Carrying amount on January 1, 2026 = P1,200,000 - (P120,000 * 2) = P960,000. Revaluation surplus = Fair value (P1,120,000) - Carrying amount (P960,000) = P160,000. Depreciation expense for 2026 = P1,120,000 / 8 = P140,000.",
+      "solution": "1. Accumulated Depreciation (2 years) = P120,000 * 2 = P240,000.\n2. Carrying Amount at Jan 1, 2026 = P1,200,000 - P240,000 = P960,000.\n3. Revaluation Surplus = P1,120,000 - P960,000 = P160,000.\n4. Depreciation Expense for 2026 = P1,120,000 / 8 years = P140,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 5,
+      "subject": "FAR",
+      "topic": "Financial Instruments",
+      "difficulty": "Easy",
+      "question": "Under PFRS 9, unrealized gains and losses arising from changes in the fair value of debt investments classified as Financial Assets at Fair Value through Other Comprehensive Income (FVOCI) are recognized in:",
+      "choices": {
+        "A": "Profit or loss, and reclassified to retained earnings upon derecognition",
+        "B": "Other comprehensive income, and reclassified to profit or loss (recycling) upon derecognition",
+        "C": "Other comprehensive income, and never reclassified to profit or loss upon derecognition",
+        "D": "Directly in retained earnings as an equity adjustment"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PFRS 9, fair value gains and losses on debt instruments measured at FVOCI are recognized in OCI. When the debt instrument is derecognized, the cumulative gain or loss previously recognized in OCI is reclassified from equity to profit or loss as a reclassification adjustment (recycled). For equity investments designated at FVOCI, gains and losses are never recycled to profit or loss.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 6,
+      "subject": "FAR",
+      "topic": "Leases",
+      "difficulty": "Difficult",
+      "question": "On January 1, 2025, Batangas Retailers entered into a 4-year lease for a store space with annual payments of P200,000 payable at the beginning of each year starting January 1, 2025. The implicit interest rate is 8%. Present value of an annuity due of 1 at 8% for 4 periods is 3.5771; PV of an ordinary annuity of 1 at 8% for 3 periods is 2.5771. Initial direct costs incurred and paid by lessee were P15,000. Lease incentives received from lessor at commencement were P10,000. What is the initial measurement of the Right-of-Use (ROU) Asset on January 1, 2025?",
+      "choices": {
+        "A": "P715,420",
+        "B": "P720,420",
+        "C": "P515,420",
+        "D": "P730,420"
+      },
+      "correctAnswer": "B",
+      "explanation": "Initial lease liability = PV of lease payments = P200,000 * 3.5771 = P715,420. ROU Asset = Initial Lease Liability (P715,420) + Initial direct costs (P15,000) - Lease incentives received (P10,000) = P720,420.",
+      "solution": "1. Lease Liability at commencement = P200,000 * 3.5771 = P715,420.\n2. ROU Asset = Lease Liability + Initial Direct Costs - Lease Incentives Received\n   ROU Asset = P715,420 + P15,000 - P10,000 = P720,420.",
+      "legalBasis": null
+    },
+    {
+      "id": 7,
+      "subject": "FAR",
+      "topic": "Provisions and Contingencies",
+      "difficulty": "Easy",
+      "question": "Under PAS 37, a provision shall be recognized when which of the following set of criteria is met?",
+      "choices": {
+        "A": "An entity has a present obligation, an outflow of resources is probable, and a reliable estimate can be made.",
+        "B": "An entity has a possible obligation, an outflow of resources is probable, and a reliable estimate can be made.",
+        "C": "An entity has a present obligation, an outflow of resources is possible, and a reliable estimate can be made.",
+        "D": "An entity has a present obligation, an outflow of resources is remote, and a reliable estimate can be made."
+      },
+      "correctAnswer": "A",
+      "explanation": "Under PAS 37 par 14, a provision is recognized when: (1) an entity has a present obligation (legal or constructive) as a result of a past event, (2) it is probable (more likely than not) that an outflow of resources embodying economic benefits will be required to settle the obligation, and (3) a reliable estimate can be made of the amount of the obligation.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 8,
+      "subject": "FAR",
+      "topic": "Revenue from Contracts with Customers",
+      "difficulty": "Moderate",
+      "question": "Under PFRS 15, an entity sells a piece of industrial equipment and a 2-year maintenance contract for a bundled price of P500,000. Standalone selling prices are P450,000 for the equipment and P150,000 for the maintenance contract. How much of the transaction price should be allocated to the equipment?",
+      "choices": {
+        "A": "P500,000",
+        "B": "P450,000",
+        "C": "P375,000",
+        "D": "P350,000"
+      },
+      "correctAnswer": "C",
+      "explanation": "Under PFRS 15, transaction price is allocated based on relative standalone selling prices. Total standalone selling prices = P450,000 + P150,000 = P600,000. Proportion for equipment = P450,000 / P600,000 = 75%. Allocation to equipment = 75% * P500,000 = P375,000.",
+      "solution": "Relative standalone selling prices:\nEquipment: P450,000 / P600,000 = 75%\nMaintenance: P150,000 / P600,000 = 25%\nAllocation to equipment = P500,000 * 75% = P375,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 9,
+      "subject": "FAR",
+      "topic": "Statement of Cash Flows",
+      "difficulty": "Moderate",
+      "question": "Pampanga Company reported net income of P1,500,000 for 2025. Non-cash expenses included depreciation of P220,000 and amortization of patent of P30,000. Gain on sale of equipment was P50,000. Working capital changes showed: Accounts receivable increased by P120,000, Inventories decreased by P80,000, and Accounts payable decreased by P40,000. Under PAS 7, what is the net cash flow provided by operating activities using the indirect method?",
+      "choices": {
+        "A": "P1,620,000",
+        "B": "P1,670,000",
+        "C": "P1,580,000",
+        "D": "P1,720,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Operating cash flow calculation: Net income (P1,500,000) + Depreciation (P220,000) + Amortization (P30,000) - Gain on sale (P50,000) - Increase in AR (P120,000) + Decrease in Inventory (P80,000) - Decrease in AP (P40,000) = P1,620,000.",
+      "solution": "Net income: P1,500,000\n+ Depreciation: P220,000\n+ Patent amortization: P30,000\n- Gain on sale of equipment: (P50,000)\n- Increase in Accounts Receivable: (P120,000)\n+ Decrease in Inventory: P80,000\n- Decrease in Accounts Payable: (P40,000)\n= Net cash provided by operating activities: P1,620,000",
+      "legalBasis": null
+    },
+    {
+      "id": 10,
+      "subject": "FAR",
+      "topic": "Shareholders' Equity",
+      "difficulty": "Difficult",
+      "question": "Laguna Corporation had 100,000 ordinary shares issued and outstanding (par value P10) on January 1, 2025. On April 1, 2025, Laguna reacquired 10,000 shares as treasury shares at P18 per share. On September 1, 2025, Laguna reissued 6,000 treasury shares at P22 per share. On November 1, 2025, Laguna reissued the remaining 4,000 treasury shares at P14 per share. Assuming Laguna uses the cost method, what is the net effect of the November 1 reissue on Retained Earnings?",
+      "choices": {
+        "A": "Decrease by P16,000",
+        "B": "Decrease by P0",
+        "C": "Decrease by P8,000",
+        "D": "Increase by P8,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "On Sept 1, 6,000 shares bought at P18 were reissued at P22: Gain/excess of P4/share * 6,000 = P24,000 credited to 'Share Premium - Treasury Shares'. On Nov 1, 4,000 shares bought at P18 were reissued at P14: Deficiency of P4/share * 4,000 = P16,000. This deficiency is debited first to the available balance of 'Share Premium - Treasury Shares' (which has P24,000). Since the P16,000 is fully absorbed by the Share Premium - Treasury Shares, Retained Earnings is decreased by P0.",
+      "solution": "1. Sept 1 Reissue: (P22 - P18) * 6,000 = P24,000 Credit to Share Premium - Treasury.\n2. Nov 1 Reissue: (P18 - P14) * 4,000 = P16,000 deficiency.\n3. Debit Share Premium - Treasury for P16,000 (available balance was P24,000).\n4. Debit to Retained Earnings = P0.",
+      "legalBasis": null
+    },
+    {
+      "id": 11,
+      "subject": "AFAR",
+      "topic": "Partnership Formation",
+      "difficulty": "Easy",
+      "question": "Alonzo and Bernardo formed a partnership. Alonzo contributed cash of P100,000 and equipment with an original cost of P250,000, accumulated depreciation of P70,000, and an agreed fair value of P200,000. Bernardo contributed inventory with a carrying value of P80,000 and fair value of P90,000, and a building with a fair value of P600,000 subject to a mortgage of P150,000 which the partnership assumes. What are the initial capital credits of Alonzo and Bernardo, respectively?",
+      "choices": {
+        "A": "Alonzo: P280,000; Bernardo: P530,000",
+        "B": "Alonzo: P300,000; Bernardo: P540,000",
+        "C": "Alonzo: P300,000; Bernardo: P690,000",
+        "D": "Alonzo: P350,000; Bernardo: P540,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Partner contributions are measured at agreed fair value less liabilities assumed by the partnership. Alonzo's capital = P100,000 (cash) + P200,000 (equipment fair value) = P300,000. Bernardo's capital = P90,000 (inventory fair value) + P600,000 (building fair value) - P150,000 (mortgage assumed) = P540,000.",
+      "solution": "Alonzo capital = P100,000 cash + P200,000 fair value equipment = P300,000.\nBernardo capital = P90,000 inventory + P600,000 building - P150,000 mortgage = P540,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 12,
+      "subject": "AFAR",
+      "topic": "Partnership Liquidation",
+      "difficulty": "Difficult",
+      "question": "Partners X, Y, and Z share profits and losses in the ratio of 4:3:3. Prior to liquidation, the partnership balance sheet shows: Cash P50,000, Non-cash assets P450,000, Liabilities P120,000, Capital X P150,000, Capital Y P130,000, and Capital Z P100,000. Non-cash assets with a carrying amount of P300,000 are sold for P180,000. The remaining non-cash assets are anticipated to yield no cash. Liquidation expenses of P10,000 are expected to be paid. All partners are personally solvent. In the first cash distribution, how much total cash is paid to Partner X?",
+      "choices": {
+        "A": "P46,000",
+        "B": "P38,000",
+        "C": "P26,000",
+        "D": "P16,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Total cash available = P50,000 + P180,000 = P230,000. Less liabilities (P120,000) and liquidation reserve (P10,000) = P100,000 distributable cash. Maximum potential loss = Book value of unsold assets (P150,000) + Liquidation expense reserve (P10,000) = P160,000. Prior to possible loss allocation, capital balances after P120,000 realization loss are: X = P150,000 - 40%(P120,000) = P102,000; Y = P130,000 - 30%(P120,000) = P94,000; Z = P100,000 - 30%(P120,000) = P64,000. Deducting max possible loss of P160,000: X: P102,000 - 40%(P160,000) = P38,000; Y: P94,000 - 30%(P160,000) = P46,000; Z: P64,000 - 30%(P160,000) = P16,000. Total distributed = P38,000 + P46,000 + P16,000 = P100,000.",
+      "solution": "1. Distributable Cash = P50,000 (beg cash) + P180,000 (proceeds) - P120,000 (liab) - P10,000 (reserve) = P100,000.\n2. Total potential loss = P150,000 (unsold assets) + P10,000 (reserve) = P160,000.\n3. X's current capital = P150,000 - 40%(P120,000 realized loss) = P102,000.\n4. Cash to X = P102,000 - 40%(P160,000) = P102,000 - P64,000 = P38,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 13,
+      "subject": "AFAR",
+      "topic": "Home Office and Branch Accounting",
+      "difficulty": "Moderate",
+      "question": "A home office bills its branch for merchandise shipments at 120% of cost. During 2025, the home office shipped goods costing P500,000 to the branch. The branch reported beginning inventory at billed price of P72,000 and ending inventory at billed price of P96,000. In the combined financial statements, what is the realized markup on branch inventory to be recognized for 2025?",
+      "choices": {
+        "A": "P96,000",
+        "B": "P100,000",
+        "C": "P116,000",
+        "D": "P80,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Billing is at 120% of cost, meaning markup is 20/120 = 1/6 of billed price. Beginning allowance = P72,000 * (20/120) = P12,000. Allowance on current shipments = P500,000 * 20% = P100,000. Total allowance available = P12,000 + P100,000 = P112,000. Ending allowance = P96,000 * (20/120) = P16,000. Realized markup = P112,000 - P16,000 = P96,000.",
+      "solution": "1. Markup rate based on billed price = 20 / 120 = 1/6 (16.67%).\n2. Allowance in Beg Inv = P72,000 * (20/120) = P12,000.\n3. Allowance in Shipments = P500,000 * 20% = P100,000.\n4. Total Allowance before adjustment = P112,000.\n5. Required Ending Allowance = P96,000 * (20/120) = P16,000.\n6. Realized Markup = P112,000 - P16,000 = P96,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 14,
+      "subject": "AFAR",
+      "topic": "Business Combinations",
+      "difficulty": "Moderate",
+      "question": "On October 1, 2025, Apex Corp. acquired 100% of the net assets of Beta Inc. by paying P2,500,000 cash and issuing 50,000 ordinary shares (par value P10, fair market value P25 per share). Apex incurred direct acquisition costs (finder's fees) of P75,000 and share issuance costs of P30,000. The carrying value of Beta's net assets was P3,000,000 and fair value was P3,400,000. What amount of goodwill should Apex recognize in its statement of financial position?",
+      "choices": {
+        "A": "P350,000",
+        "B": "P425,000",
+        "C": "P750,000",
+        "D": "P380,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Under PFRS 3, consideration transferred = Cash (P2,500,000) + Shares at fair value (50,000 * P25 = P1,250,000) = P3,750,000. Acquisition-related costs (P75,000) are expensed in profit or loss. Share issuance costs (P30,000) reduce share premium. Goodwill = Consideration transferred (P3,750,000) - Fair value of identifiable net assets (P3,400,000) = P350,000.",
+      "solution": "Consideration transferred:\nCash: P2,500,000\nOrdinary shares (50,000 * P25): P1,250,000\nTotal Consideration: P3,750,000\nLess Fair value of net assets: P3,400,000\nGoodwill = P3,750,000 - P3,400,000 = P350,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 15,
+      "subject": "AFAR",
+      "topic": "Consolidated Financial Statements",
+      "difficulty": "Difficult",
+      "question": "Parent Corp. owns 80% of Subsidiary Corp. In 2024, Subsidiary sold inventory costing P200,000 to Parent for P280,000. By December 31, 2024, 25% of this inventory remained unsold by Parent. In 2025, Parent sold the remaining inventory to outside parties. For 2025, Subsidiary reported net income of P500,000. There were no other intercompany transactions. What is the Non-Controlling Interest (NCI) in net income of Subsidiary for 2025?",
+      "choices": {
+        "A": "P100,000",
+        "B": "P104,000",
+        "C": "P96,000",
+        "D": "P108,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "The transaction is an upstream sale (Subsidiary to Parent), so unrealized/realized intercompany profits affect NCI. Total markup = P280,000 - P200,000 = P80,000. Unrealized profit in 2024 inventory = 25% * P80,000 = P20,000. In 2025, this P20,000 is realized. Subsidiary's adjusted net income for 2025 = P500,000 (reported) + P20,000 (realized profit) = P520,000. NCI share in net income = 20% * P520,000 = P104,000.",
+      "solution": "1. Unrealized profit at Dec 31, 2024 = (P280,000 - P200,000) * 25% = P20,000.\n2. Realization in 2025 increases Subsidiary's adjusted net income.\n3. Adjusted Net Income = P500,000 + P20,000 = P520,000.\n4. NCI in net income = P520,000 * 20% = P104,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 16,
+      "subject": "AFAR",
+      "topic": "Foreign Currency Transactions",
+      "difficulty": "Moderate",
+      "question": "On November 15, 2025, a Philippine company purchased merchandise from a US supplier for US$100,000 when the spot exchange rate was US$1 = P56.00. Payment is due on January 15, 2026. On December 31, 2025, the spot rate was US$1 = P56.80. On January 15, 2026, the company settled the account when the spot rate was US$1 = P56.50. Under PAS 21, what foreign exchange gain or loss should be recognized in 2025 and 2026 profit or loss, respectively?",
+      "choices": {
+        "A": "2025: P80,000 gain; 2026: P30,000 loss",
+        "B": "2025: P80,000 loss; 2026: P30,000 gain",
+        "C": "2025: P50,000 loss; 2026: P0",
+        "D": "2025: P0; 2026: P50,000 loss"
+      },
+      "correctAnswer": "B",
+      "explanation": "Initial liability at Nov 15, 2025 = $100,000 * P56.00 = P5,600,000. Dec 31, 2025 liability = $100,000 * P56.80 = P5,680,000. Since liability increased, there is an exchange loss of P80,000 in 2025. Settlement at Jan 15, 2026 = $100,000 * P56.50 = P5,650,000. Since liability decreased from P5,680,000 to P5,650,000, there is an exchange gain of P30,000 in 2026.",
+      "solution": "2025: ($100,000 * P56.80) - ($100,000 * P56.00) = P80,000 Forex Loss.\n2026: ($100,000 * P56.80) - ($100,000 * P56.50) = P30,000 Forex Gain.",
+      "legalBasis": null
+    },
+    {
+      "id": 17,
+      "subject": "AFAR",
+      "topic": "Joint Arrangements",
+      "difficulty": "Easy",
+      "question": "Under PFRS 11, when an arrangement is structured through a separate vehicle and confers upon the parties rights to the net assets of the arrangement, it is classified as a:",
+      "choices": {
+        "A": "Joint operation, accounted for using line-by-line proportionate consolidation",
+        "B": "Joint venture, accounted for using the equity method",
+        "C": "Joint operation, accounted for by recognizing assets, liabilities, revenues, and expenses",
+        "D": "Subsidiary, accounted for under full consolidation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PFRS 11, a joint arrangement is either a joint operation or a joint venture. A joint venture is a joint arrangement whereby the parties that have joint control of the arrangement have rights to the net assets of the arrangement. A joint venturer recognizes its interest in a joint venture as an investment and accounts for that investment using the equity method in accordance with PAS 28.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 18,
+      "subject": "AFAR",
+      "topic": "Government Accounting",
+      "difficulty": "Moderate",
+      "question": "Under the Government Accounting Manual (GAM) for National Government Agencies, what is the registry used by NGAs to monitor appropriations, allotments received, and obligations incurred?",
+      "choices": {
+        "A": "RAPAL and RAOD",
+        "B": "FAR No. 1 and FAR No. 2",
+        "C": "General Journal and Cash Receipts Record",
+        "D": "Registry of Budget, Commitments and Disbursements"
+      },
+      "correctAnswer": "A",
+      "explanation": "Under the GAM for NGAs, the Registry of Appropriations and Allotments (RAPAL) is maintained to track appropriations and allotments, and the Registries of Allotments, Obligations and Disbursements (RAOD) are maintained by the budget division/unit to record allotments, obligations, and disbursements for Personnel Services (PS), MOOE, Financial Expenses (FE), and Capital Outlays (CO).",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 19,
+      "subject": "AFAR",
+      "topic": "Not-for-Profit Accounting",
+      "difficulty": "Easy",
+      "question": "Under PFRS / US GAAP standards applicable to Private Not-For-Profit Organizations, net assets are categorized into which of the following classes?",
+      "choices": {
+        "A": "Unrestricted, Temporarily Restricted, and Permanently Restricted",
+        "B": "Net Assets Without Donor Restrictions and Net Assets With Donor Restrictions",
+        "C": "General Fund Net Assets and Special Purpose Fund Net Assets",
+        "D": "Current Net Assets and Non-Current Net Assets"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under modern NPO accounting frameworks (such as FASB ASU 2016-14 commonly tested in CPALE for private NPOs), net assets are simplified into two categories: (1) Net Assets Without Donor Restrictions, and (2) Net Assets With Donor Restrictions.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 20,
+      "subject": "AFAR",
+      "topic": "Construction Contracts",
+      "difficulty": "Difficult",
+      "question": "BuildCorp entered into a fixed-price contract to construct a commercial building for P10,000,000. In Year 1, costs incurred were P2,400,000 and estimated remaining costs to complete were P5,600,000. In Year 2, costs incurred were P3,600,000 and estimated remaining costs to complete were P2,000,000. Using the input method (cost-to-cost) under PFRS 15, how much gross profit should BuildCorp recognize in Year 2?",
+      "choices": {
+        "A": "P600,000",
+        "B": "P900,000",
+        "C": "P1,500,000",
+        "D": "P2,000,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Year 1: Total estimated cost = P2.4M + P5.6M = P8.0M. Percentage of completion = P2.4M / P8.0M = 30%. Expected total profit = P10M - P8M = P2.0M. Year 1 Gross Profit = 30% * P2.0M = P600,000. Year 2: Cumulative costs = P2.4M + P3.6M = P6.0M. Total estimated cost = P6.0M + P2.0M = P8.0M. Cumulative percentage = P6.0M / P8.0M = 75%. Cumulative Gross Profit = 75% * P2.0M = P1,500,000. Year 2 Gross Profit recognized = P1,500,000 - P600,000 = P900,000.",
+      "solution": "1. Year 1:\n   % complete = P2,400,000 / P8,000,000 = 30%\n   Cumulative Profit = 30% * (P10M - P8M) = P600,000.\n2. Year 2:\n   Cumulative cost = P2,400,000 + P3,600,000 = P6,000,000\n   Total estimated cost = P6,000,000 + P2,000,000 = P8,000,000\n   % complete = P6,000,000 / P8,000,000 = 75%\n   Cumulative Profit = 75% * (P10M - P8M) = P1,500,000.\n3. Year 2 Recognized Profit = P1,500,000 - P600,000 = P900,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 21,
+      "subject": "MAS",
+      "topic": "Cost-Volume-Profit Analysis",
+      "difficulty": "Easy",
+      "question": "Lucena Manufacturing produces a single product with a selling price of P50, unit variable cost of P30, and total fixed costs of P600,000 per year. What is the breakeven point in sales pesos?",
+      "choices": {
+        "A": "P1,500,000",
+        "B": "P1,000,000",
+        "C": "P1,200,000",
+        "D": "P1,800,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Contribution Margin (CM) per unit = P50 - P30 = P20. CM Ratio = P20 / P50 = 40%. Breakeven sales in pesos = Fixed Costs / CM Ratio = P600,000 / 0.40 = P1,500,000.",
+      "solution": "1. CM per unit = P50 - P30 = P20.\n2. CM Ratio = P20 / P50 = 0.40 (40%).\n3. BEP (Pesos) = P600,000 / 0.40 = P1,500,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 22,
+      "subject": "MAS",
+      "topic": "Variance Analysis",
+      "difficulty": "Moderate",
+      "question": "Bulacan Company standard direct labor requirements are 2 hours per unit at a standard rate of P80 per hour. During March, Bulacan produced 5,000 units and incurred 10,500 direct labor hours at a total payroll cost of P861,000. What are the Direct Labor Rate Variance and Direct Labor Efficiency Variance, respectively?",
+      "choices": {
+        "A": "Rate: P21,000 Unfavorable; Efficiency: P40,000 Unfavorable",
+        "B": "Rate: P21,000 Favorable; Efficiency: P40,000 Unfavorable",
+        "C": "Rate: P21,000 Unfavorable; Efficiency: P40,000 Favorable",
+        "D": "Rate: P19,000 Unfavorable; Efficiency: P42,000 Unfavorable"
+      },
+      "correctAnswer": "A",
+      "explanation": "Actual Rate = P861,000 / 10,500 hours = P82/hr. Labor Rate Variance = (Actual Rate - Standard Rate) * Actual Hours = (P82 - P80) * 10,500 = P21,000 Unfavorable. Standard Hours Allowed = 5,000 units * 2 hrs = 10,000 hrs. Labor Efficiency Variance = (Actual Hours - Standard Hours Allowed) * Standard Rate = (10,500 - 10,000) * P80 = P40,000 Unfavorable.",
+      "solution": "1. Actual Rate (AR) = P861,000 / 10,500 = P82/hr.\n2. Rate Variance = (AR - SR) * AH = (P82 - P80) * 10,500 = P21,000 U.\n3. Standard Hours (SH) = 5,000 * 2 = 10,000 hrs.\n4. Efficiency Variance = (AH - SH) * SR = (10,500 - 10,000) * P80 = P40,000 U.",
+      "legalBasis": null
+    },
+    {
+      "id": 23,
+      "subject": "MAS",
+      "topic": "Relevant Costing",
+      "difficulty": "Moderate",
+      "question": "Marikina Shoe Corp. produces 10,000 pairs of rubber soles annually for its shoes. Unit costs to make the sole are: Direct materials P40, Direct labor P30, Variable overhead P15, and Allocated fixed overhead P25. An outside supplier offers to provide 10,000 pairs of identical soles for P95 each. If Marikina accepts the offer, P10 of the allocated fixed overhead per unit can be avoided, and the released facility can be rented out for P60,000 per year. Should Marikina make or buy the soles, and by what net advantage?",
+      "choices": {
+        "A": "Make; advantage of P10,000",
+        "B": "Buy; advantage of P60,000",
+        "C": "Make; advantage of P60,000",
+        "D": "Buy; advantage of P10,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Relevant cost to MAKE: Variable costs (P40 + P30 + P15 = P85) + Avoidable fixed overhead (P10) = P95 per unit * 10,000 units = P950,000. Plus Opportunity cost of renting out facility = P60,000. Total equivalent cost to make = P1,010,000. Cost to BUY = 10,000 units * P95 = P950,000. Net advantage to BUY = P1,010,000 - P950,000 = P60,000.",
+      "solution": "Relevant Cost to Make:\n- Avoidable production costs = (P40 + P30 + P15 + P10) * 10,000 = P950,000\n- Opportunity Cost (foregone rent) = P60,000\nTotal Make Cost = P1,010,000\nRelevant Cost to Buy:\n- Purchase cost = 10,000 * P95 = P950,000\nAdvantage of Buying = P1,010,000 - P950,000 = P60,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 24,
+      "subject": "MAS",
+      "topic": "Capital Budgeting",
+      "difficulty": "Difficult",
+      "question": "Baguio Ventures is evaluating an equipment investment costing P1,000,000 with a 5-year life and zero salvage value. The machine will generate annual pre-tax cash operating savings of P400,000. The corporate income tax rate is 25%, and the company uses straight-line depreciation for tax purposes. Cost of capital is 10%. Present value factor of an ordinary annuity of 1 at 10% for 5 years is 3.7908. What is the Net Present Value (NPV) of the project?",
+      "choices": {
+        "A": "P326,780",
+        "B": "P245,600",
+        "C": "P516,320",
+        "D": "P350,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Annual depreciation = P1,000,000 / 5 = P200,000. Annual after-tax cash flow = [Pre-tax cash savings * (1 - Tax rate)] + [Depreciation * Tax rate] = [P400,000 * (1 - 0.25)] + [P200,000 * 0.25] = P300,000 + P50,000 = P350,000. Present value of cash inflows = P350,000 * 3.7908 = P1,326,780. Net Present Value = P1,326,780 - P1,000,000 = P326,780.",
+      "solution": "1. Annual Depreciation = P1,000,000 / 5 = P200,000.\n2. After-Tax Cash Flow = (P400,000 * 0.75) + (P200,000 * 0.25) = P300,000 + P50,000 = P350,000.\n3. PV of Operating Cash Inflows = P350,000 * 3.7908 = P1,326,780.\n4. NPV = P1,326,780 - P1,000,000 = P326,780.",
+      "legalBasis": null
+    },
+    {
+      "id": 25,
+      "subject": "MAS",
+      "topic": "Working Capital Management",
+      "difficulty": "Moderate",
+      "question": "Dagupan Trading has annual credit sales of P7,200,000 with a collection period of 40 days. Cost of goods sold is 75% of sales, and inventory turnover is 6 times a year. Accounts payable turnover is 8 times a year based on cost of goods sold. Using a 360-day year, what is Dagupan's Cash Conversion Cycle (CCC)?",
+      "choices": {
+        "A": "55 days",
+        "B": "65 days",
+        "C": "45 days",
+        "D": "75 days"
+      },
+      "correctAnswer": "A",
+      "explanation": "Days Sales Outstanding (DSO) = 40 days. Days Sales in Inventory (DSI) = 360 / 6 = 60 days. Days Payable Outstanding (DPO) = 360 / 8 = 45 days. Cash Conversion Cycle (CCC) = DSO + DSI - DPO = 40 + 60 - 45 = 55 days.",
+      "solution": "1. Receivable Collection Period (DSO) = 40 days\n2. Inventory Conversion Period (DSI) = 360 / 6 = 60 days\n3. Payable Deferral Period (DPO) = 360 / 8 = 45 days\n4. CCC = DSO + DSI - DPO = 40 + 60 - 45 = 55 days.",
+      "legalBasis": null
+    },
+    {
+      "id": 26,
+      "subject": "MAS",
+      "topic": "Financial Statement Analysis",
+      "difficulty": "Easy",
+      "question": "Which of the following ratios measures an enterprise's degree of financial leverage and long-term solvency?",
+      "choices": {
+        "A": "Times Interest Earned Ratio",
+        "B": "Quick Ratio",
+        "C": "Asset Turnover Ratio",
+        "D": "Gross Profit Margin"
+      },
+      "correctAnswer": "A",
+      "explanation": "Times Interest Earned (Interest Coverage Ratio) measures an entity's ability to service its debt obligations from operating income (EBIT), thereby reflecting long-term financial solvency and leverage risk.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 27,
+      "subject": "MAS",
+      "topic": "Responsibility Accounting & Performance Measurement",
+      "difficulty": "Difficult",
+      "question": "Division Alpha of Rizal Conglomerate reported operating income of P480,000 on average operating assets of P2,400,000. Rizal's weighted average cost of capital and minimum required rate of return is 12%. What are Division Alpha's Return on Investment (ROI) and Residual Income (RI), respectively?",
+      "choices": {
+        "A": "ROI: 20%; RI: P192,000",
+        "B": "ROI: 25%; RI: P192,000",
+        "C": "ROI: 20%; RI: P288,000",
+        "D": "ROI: 12%; RI: P0"
+      },
+      "correctAnswer": "A",
+      "explanation": "ROI = Operating Income / Average Operating Assets = P480,000 / P2,400,000 = 20%. Minimum Required Return = P2,400,000 * 12% = P288,000. Residual Income (RI) = Operating Income (P480,000) - Minimum Required Return (P288,000) = P192,000.",
+      "solution": "1. ROI = P480,000 / P2,400,000 = 20%.\n2. Imputed interest charge = P2,400,000 * 12% = P288,000.\n3. Residual Income = P480,000 - P288,000 = P192,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 28,
+      "subject": "MAS",
+      "topic": "Quantitative Methods",
+      "difficulty": "Moderate",
+      "question": "Quezon Corp. uses the Economic Order Quantity (EOQ) model. Annual demand is 18,000 units, ordering cost is P50 per order, and carrying cost is P5 per unit per year. What is the total annual ordering and carrying cost at the economic order quantity?",
+      "choices": {
+        "A": "P3,000",
+        "B": "P6,000",
+        "C": "P4,500",
+        "D": "P1,500"
+      },
+      "correctAnswer": "A",
+      "explanation": "EOQ = sqrt((2 * Demand * Order Cost) / Carrying Cost) = sqrt((2 * 18,000 * 50) / 5) = sqrt(1,800,000 / 5) = sqrt(360,000) = 600 units. Total Annual Ordering Cost = (18,000 / 600) * P50 = 30 * P50 = P1,500. Total Annual Carrying Cost = (600 / 2) * P5 = 300 * P5 = P1,500. Total annual cost = P1,500 + P1,500 = P3,000.",
+      "solution": "1. EOQ = sqrt((2 * 18,000 * 50) / 5) = sqrt(360,000) = 600 units.\n2. Ordering cost = (18,000 / 600) * P50 = P1,500.\n3. Carrying cost = (600 / 2) * P5 = P1,500.\n4. Total inventory cost at EOQ = P1,500 + P1,500 = P3,000.",
+      "legalBasis": null
+    },
+    {
+      "id": 29,
+      "subject": "AUD",
+      "topic": "Audit Planning and Risk Assessment",
+      "difficulty": "Easy",
+      "question": "According to Philippine Standards on Auditing (PSA 315), the primary objective of performing risk assessment procedures is to:",
+      "choices": {
+        "A": "Provide an audit opinion on the operational efficiency of the entity",
+        "B": "Identify and assess the risks of material misstatement, whether due to fraud or error, at the financial statement and assertion levels",
+        "C": "Detect all immaterial errors and fraudulent entries in the accounting journals",
+        "D": "Gather sufficient appropriate audit evidence to eliminate audit risk entirely"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PSA 315 (Revised), the auditor shall perform risk assessment procedures to provide a basis for the identification and assessment of risks of material misstatement at the financial statement and assertion levels.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 30,
+      "subject": "AUD",
+      "topic": "Audit Risk Model",
+      "difficulty": "Moderate",
+      "question": "In applying the audit risk model (Audit Risk = Inherent Risk x Control Risk x Detection Risk), if the auditor assesses the risk of material misstatement (IR x CR) as HIGH, the auditor must:",
+      "choices": {
+        "A": "Set acceptable detection risk at a higher level and perform fewer substantive procedures",
+        "B": "Set acceptable detection risk at a lower level and expand substantive procedures",
+        "C": "Increase the assessed inherent risk to compensate for control deficiencies",
+        "D": "Withdraw from the engagement immediately without further testing"
+      },
+      "correctAnswer": "B",
+      "explanation": "There is an inverse relationship between the assessed Risk of Material Misstatement (RMM = Inherent Risk x Control Risk) and acceptable Detection Risk (DR). When RMM is high, acceptable DR must be set low to keep overall Audit Risk at an acceptably low level, requiring more persuasive audit evidence and expanded substantive testing.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 31,
+      "subject": "AUD",
+      "topic": "Audit Evidence",
+      "difficulty": "Moderate",
+      "question": "Which of the following types of audit evidence is generally considered the MOST reliable by an independent auditor?",
+      "choices": {
+        "A": "Inquiry of the entity's chief financial officer regarding pending litigation",
+        "B": "External confirmation received directly by the auditor from a commercial bank",
+        "C": "Client-prepared sales summary spreadsheet without supporting invoices",
+        "D": "Carbon copies of purchase orders maintained in the purchasing department"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PSA 500, audit evidence obtained directly by the auditor from independent sources outside the entity (such as bank confirmations) is more reliable than evidence obtained indirectly or from internal sources.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 32,
+      "subject": "AUD",
+      "topic": "Audit Sampling",
+      "difficulty": "Difficult",
+      "question": "In a test of controls over credit approvals, the auditor sets a tolerable deviation rate of 6%, an expected population deviation rate of 2%, and a 5% risk of overreliance. The sample of 100 items reveals 5 deviations. If the computed upper deviation limit is 8.5%, the auditor should conclude that:",
+      "choices": {
+        "A": "The control is operating effectively because the sample deviation rate is only 5%",
+        "B": "The control cannot be relied upon because the computed upper deviation limit exceeds the tolerable deviation rate",
+        "C": "The sample size was too large and should be reduced",
+        "D": "Inherent risk should be lowered to offset the control deviation rate"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PSA 530, if the computed upper deviation limit (8.5%) exceeds the tolerable deviation rate (6%), the sample results do not support the planned reliance on the control. The auditor concludes the control is not operating effectively and must modify the nature, timing, and extent of substantive procedures.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 33,
+      "subject": "AUD",
+      "topic": "Internal Control",
+      "difficulty": "Easy",
+      "question": "Which of the following internal control activities represents an effective segregation of duties in the revenue and collection cycle?",
+      "choices": {
+        "A": "The cashier who receives cash collections also posts entries to the accounts receivable subsidiary ledger",
+        "B": "The billing clerk prepares sales invoices while the warehouse custodian authorizes credit limits",
+        "C": "The employee who opens the mail and lists incoming customer checks is independent of accounts receivable ledger maintenance and general ledger posting",
+        "D": "The sales manager approves write-offs of uncollectible accounts and also handles cash deposits"
+      },
+      "correctAnswer": "C",
+      "explanation": "Proper segregation of duties requires separating authorization, asset custody, and recordkeeping. Having the person who opens mail and lists checks separate from accounts receivable recordkeeping prevents misappropriation of cash and concealment through improper entries (lapping).",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 34,
+      "subject": "AUD",
+      "topic": "Fraud in Audit",
+      "difficulty": "Moderate",
+      "question": "Under PSA 240, what are the two types of intentional misstatements that are relevant to the auditor's consideration of fraud?",
+      "choices": {
+        "A": "Misstatements resulting from clerical errors and misstatements resulting from changes in accounting estimates",
+        "B": "Misstatements resulting from fraudulent financial reporting and misstatements resulting from misappropriation of assets",
+        "C": "Misstatements resulting from related party disclosures and foreign currency translation errors",
+        "D": "Misstatements arising from tax avoidance schemes and operational inefficiencies"
+      },
+      "correctAnswer": "B",
+      "explanation": "PSA 240 distinguishes between two types of fraud relevant to the auditor: (1) misstatements resulting from fraudulent financial reporting (e.g., management override, cooking the books) and (2) misstatements resulting from misappropriation of assets (e.g., theft, embezzlement).",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 35,
+      "subject": "AUD",
+      "topic": "Audit Reporting",
+      "difficulty": "Difficult",
+      "question": "An auditor determines that the client's inventory is materially misstated due to the non-application of the lower of cost and net realizable value rule. The misstatement is material to the financial statements but is NOT pervasive. What type of audit opinion should the auditor issue under PSA 705?",
+      "choices": {
+        "A": "Unmodified opinion with an emphasis of matter paragraph",
+        "B": "Qualified opinion ('Except for')",
+        "C": "Adverse opinion",
+        "D": "Disclaimer of opinion"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PSA 705 (Modifications to the Opinion in the Independent Auditor's Report), when financial statements are materially misstated but the effects are NOT pervasive, the auditor expresses a Qualified Opinion ('Except for'). An adverse opinion is issued only when misstatements are both material AND pervasive.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 36,
+      "subject": "AUD",
+      "topic": "Subsequent Events",
+      "difficulty": "Moderate",
+      "question": "On February 10, 2026, before the issuance of the 2025 financial statements, a major customer of Pasig Corp. went bankrupt due to a fire that destroyed its uninsured facilities on February 5, 2026. The receivable existed as of December 31, 2025. Under PSA 560 and PAS 10, what is the appropriate accounting and auditing treatment for the 2025 financial statements?",
+      "choices": {
+        "A": "Adjust the 2025 financial statements by writing off the trade receivable as an adjusting event",
+        "B": "Do not adjust the 2025 financial statements, but disclose the nature and financial effect of the event as a non-adjusting subsequent event",
+        "C": "Issue a disclaimer of opinion because the condition did not exist at the reporting date",
+        "D": "Restate prior period financial statements to reflect the impairment"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under PAS 10 / PSA 560, the fire occurred after the reporting period (in February 2026), meaning the condition causing bankruptcy did not exist at December 31, 2025. Therefore, this is a non-adjusting event that requires financial statement footnote disclosure rather than an adjustment to the 2025 balances.",
+      "solution": null,
+      "legalBasis": null
+    },
+    {
+      "id": 37,
+      "subject": "TAX",
+      "topic": "Individual Income Taxation",
+      "difficulty": "Moderate",
+      "question": "For taxable year 2025, Juan, a resident citizen purely self-employed professional with gross receipts of P2,400,000 and cost of services/expenses of P900,000, opted to be taxed under the 8% income tax rate option under the NIRC as amended by the TRAIN Law. What is his total income tax due for the taxable year?",
+      "choices": {
+        "A": "P192,000",
+        "B": "P172,000",
+        "C": "P120,000",
+        "D": "P160,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under Section 24(A)(2)(b) of the Tax Code as amended by the TRAIN Law (RA 10963), a self-employed individual whose gross sales/receipts do not exceed the VAT threshold (P3,000,000) may opt to be taxed at 8% of gross sales/receipts in excess of P250,000 in lieu of the graduated income tax rates and percentage tax under Section 116. Tax due = (P2,400,000 - P250,000) * 8% = P2,150,000 * 8% = P172,000.",
+      "solution": "Gross Receipts: P2,400,000\nLess: Statutory Exemption: P250,000\nTaxable Base: P2,150,000\nTax Due = P2,150,000 * 8% = P172,000.",
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 24(A)(2)(b), as amended by Republic Act No. 10963 (TRAIN Law)"
+    },
+    {
+      "id": 38,
+      "subject": "TAX",
+      "topic": "Corporate Income Taxation",
+      "difficulty": "Moderate",
+      "question": "Under the CREATE Act (RA 11534), what regular corporate income tax (RCIT) rate applies to a domestic corporation with net taxable income of P4,000,000 and total assets of P80,000,000 (excluding the land on which the business's office is situated)?",
+      "choices": {
+        "A": "25%",
+        "B": "20%",
+        "C": "30%",
+        "D": "15%"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under the CREATE Act (Section 27(A) of the NIRC as amended), domestic corporations with net taxable income not exceeding P5,000,000 AND total assets not exceeding P100,000,000 (excluding land on which the particular business entity's office, plant, and equipment are situated) are subject to a preferential RCIT rate of 20%. Otherwise, the rate is 25%. Here, net income is P4M (<= P5M) and assets are P80M (<= P100M), so 20% applies.",
+      "solution": null,
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 27(A), as amended by Republic Act No. 11534 (CREATE Act)"
+    },
+    {
+      "id": 39,
+      "subject": "TAX",
+      "topic": "Value-Added Tax",
+      "difficulty": "Difficult",
+      "question": "Makati Merchant, a VAT-registered seller, recorded the following transactions for the quarter ending March 31, 2025 (all amounts are gross of 12% VAT where applicable): Domestic sales of taxable goods P3,360,000; Export sales P1,000,000; Domestic purchases of goods for resale from VAT-registered suppliers P1,680,000; Capital goods purchased on January 2, 2025 with an estimated useful life of 6 years P1,120,000. Under current tax rules (post-TRAIN and post-EOPT), how much is Makati Merchant's net VAT payable for the quarter?",
+      "choices": {
+        "A": "P60,000",
+        "B": "P180,000",
+        "C": "P240,000",
+        "D": "P300,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Output VAT: Taxable domestic sales = P3,360,000 / 1.12 * 12% = P360,000. Export sales are zero-rated = P0 output VAT. Total Output VAT = P360,000. Input VAT: Purchases of goods = P1,680,000 / 1.12 * 12% = P180,000. Capital goods purchased starting January 1, 2022 are no longer subject to the 60-month amortization rule (as the amortization requirement expired under the TRAIN Law); input VAT is claimed outright in full in the month/quarter of purchase. Input VAT on capital goods = P1,120,000 / 1.12 * 12% = P120,000. Total allowable input VAT = P180,000 + P120,000 = P300,000. Net VAT Payable = P360,000 - P300,000 = P60,000.",
+      "solution": "1. Output VAT = (P3,360,000 / 1.12) * 12% = P360,000.\n2. Input VAT (Goods) = (P1,680,000 / 1.12) * 12% = P180,000.\n3. Input VAT (Capital Goods - 100% outright) = (P1,120,000 / 1.12) * 12% = P120,000.\n4. Total Input VAT = P300,000.\n5. Net VAT Payable = P360,000 - P300,000 = P60,000.",
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 110(A)(2), as amended by TRAIN Law and RR 13-2018 / RR 21-2021 (Phase-out of input VAT amortization on capital goods)"
+    },
+    {
+      "id": 40,
+      "subject": "TAX",
+      "topic": "Estate Tax",
+      "difficulty": "Easy",
+      "question": "Under the NIRC as amended by the TRAIN Law (effective 2018 to date), what is the flat estate tax rate and the maximum allowable standard deduction for a resident citizen decedent?",
+      "choices": {
+        "A": "Estate tax rate of 6%; Standard deduction of P5,000,000",
+        "B": "Estate tax rate of 6%; Standard deduction of P1,000,000",
+        "C": "Estate tax rate of graduated 5%-20%; Standard deduction of P5,000,000",
+        "D": "Estate tax rate of 6%; Standard deduction of P10,000,000"
+      },
+      "correctAnswer": "A",
+      "explanation": "Under Section 84 and Section 86(A)(1) of the NIRC as amended by RA 10963 (TRAIN Law), the estate tax is computed at a flat rate of 6% based on the net estate. For a citizen or resident alien decedent, a standard deduction of P5,000,000 is allowed without need for substantiation.",
+      "solution": null,
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 84 and 86(A)(1), as amended by Republic Act No. 10963"
+    },
+    {
+      "id": 41,
+      "subject": "TAX",
+      "topic": "Capital Gains Tax",
+      "difficulty": "Moderate",
+      "question": "In June 2025, Mr. Ramos, an individual citizen not engaged in the real estate business, sold his idle residential lot in Quezon City for P5,000,000. The property had a zonal value of P5,500,000 and an assessor's fair market value of P4,200,000. How much is the Capital Gains Tax due on the transaction?",
+      "choices": {
+        "A": "P300,000",
+        "B": "P330,000",
+        "C": "P252,000",
+        "D": "P660,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under Section 24(D)(1) of the NIRC, a final tax of 6% is imposed on the gross selling price or current fair market value, whichever is higher. Fair market value is the higher between the Commissioner's zonal value (P5,500,000) and the provincial/city assessor's value (P4,200,000). Comparing gross selling price (P5,000,000) and zonal value (P5,500,000), the tax base is P5,500,000. CGT = P5,500,000 * 6% = P330,000.",
+      "solution": "Tax base = Highest of Selling Price (P5.0M), Zonal Value (P5.5M), and Assessor's FMV (P4.2M) = P5,500,000.\nCapital Gains Tax = P5,500,000 * 6% = P330,000.",
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 24(D)(1)"
+    },
+    {
+      "id": 42,
+      "subject": "TAX",
+      "topic": "Donor's Tax",
+      "difficulty": "Easy",
+      "question": "Under the TRAIN Law, donations made by an individual donor to any person (whether a relative or a stranger) in excess of what annual exempt threshold are subject to a flat 6% donor's tax?",
+      "choices": {
+        "A": "P100,000",
+        "B": "P250,000",
+        "C": "P500,000",
+        "D": "P1,000,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under Section 98 and 99 of the NIRC as amended by the TRAIN Law (RA 10963), total net gifts not exceeding P250,000 made during a calendar year are exempt from donor's tax. Gifts in excess of P250,000 are subject to a flat donor's tax rate of 6%, regardless of the relationship between donor and donee.",
+      "solution": null,
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 98 and 99, as amended by Republic Act No. 10963"
+    },
+    {
+      "id": 43,
+      "subject": "TAX",
+      "topic": "Tax Administration & EOPT Act",
+      "difficulty": "Difficult",
+      "question": "Under Republic Act No. 11976 (Ease of Paying Taxes Act), which classification of taxpayers applies to an enterprise with gross sales of P800,000,000 for the taxable year?",
+      "choices": {
+        "A": "Micro Taxpayer",
+        "B": "Small Taxpayer",
+        "C": "Medium Taxpayer",
+        "D": "Large Taxpayer"
+      },
+      "correctAnswer": "C",
+      "explanation": "Under Section 21(B) of the NIRC as introduced by RA 11976 (EOPT Act): Micro taxpayers have gross sales less than P3,000,000; Small taxpayers have gross sales of P3,000,000 to less than P20,000,000; Medium taxpayers have gross sales of P20,000,000 to less than P1,000,000,000; and Large taxpayers have gross sales of P1,000,000,000 and above. An enterprise with P800,000,000 gross sales is classified as a Medium Taxpayer.",
+      "solution": null,
+      "legalBasis": "National Internal Revenue Code (NIRC) Sec. 21(B), as added by Republic Act No. 11976 (Ease of Paying Taxes Act)"
+    },
+    {
+      "id": 44,
+      "subject": "RFBT",
+      "topic": "Revised Corporation Code",
+      "difficulty": "Easy",
+      "question": "Under the Revised Corporation Code of the Philippines (Republic Act No. 11232), what is the general rule regarding the corporate term of existence of private corporations incorporated after the law's effectivity?",
+      "choices": {
+        "A": "A fixed term of 50 years, extendible for another 50 years",
+        "B": "Perpetual existence, unless the articles of incorporation provide otherwise",
+        "C": "A minimum of 20 years and a maximum of 100 years",
+        "D": "Indefinite existence only upon approval by the Philippine Competition Commission"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under Section 11 of Republic Act No. 11232 (Revised Corporation Code), corporations shall have perpetual existence unless its articles of incorporation provide otherwise. Existing corporations prior to the RCC also automatically have perpetual existence unless they elect to retain their specific term.",
+      "solution": null,
+      "legalBasis": "Republic Act No. 11232 (Revised Corporation Code of the Philippines), Section 11"
+    },
+    {
+      "id": 45,
+      "subject": "RFBT",
+      "topic": "One Person Corporation (OPC)",
+      "difficulty": "Moderate",
+      "question": "Under the Revised Corporation Code (RA 11232), which of the following entities is PROHIBITED from organizing and incorporating as a One Person Corporation (OPC)?",
+      "choices": {
+        "A": "A natural person who is a licensed engineer setting up a consultancy firm",
+        "B": "A trust entity or estate",
+        "C": "A bank, non-bank financial institution, quasi-bank, or public company",
+        "D": "A Filipino citizen setting up an import-export trading company"
+      },
+      "correctAnswer": "C",
+      "explanation": "Under Section 116 of the Revised Corporation Code (RA 11232), banks and quasi-banks, pre-need, trust, insurance, public and publicly-listed companies, and non-chartered government-owned and -controlled corporations may NOT incorporate as One Person Corporations.",
+      "solution": null,
+      "legalBasis": "Republic Act No. 11232, Section 116"
+    },
+    {
+      "id": 46,
+      "subject": "RFBT",
+      "topic": "Law on Partnerships",
+      "difficulty": "Moderate",
+      "question": "Under Article 1773 of the Civil Code of the Philippines, what is the consequence if real property is contributed to a partnership but an inventory of said property is not made, signed by the parties, and attached to the public instrument?",
+      "choices": {
+        "A": "The contract of partnership is voidable at the instance of any partner",
+        "B": "The partnership contract is void",
+        "C": "The partnership is valid only as between the partners but unenforceable against third persons",
+        "D": "The partnership is converted into a sole proprietorship"
+      },
+      "correctAnswer": "B",
+      "explanation": "Article 1773 of the Civil Code expressly provides that a contract of partnership is void, whenever immovable property is contributed thereto, if an inventory of said property is not made, signed by the parties, and attached to the public instrument.",
+      "solution": null,
+      "legalBasis": "Civil Code of the Philippines, Article 1773"
+    },
+    {
+      "id": 47,
+      "subject": "RFBT",
+      "topic": "Law on Obligations and Contracts",
+      "difficulty": "Difficult",
+      "question": "Under Article 1403 of the Civil Code (Statute of Frauds), which of the following agreements MUST be in writing to be enforceable by action in court?",
+      "choices": {
+        "A": "A lease of real property for a period of exactly six (6) months",
+        "B": "A mutual promise to marry that has already been consummated by cohabitation",
+        "C": "An agreement for the sale of goods, chattels or things in action at a price not less than Five Hundred Pesos (P500), where no delivery or partial payment has been made",
+        "D": "An agreement that by its terms is to be fully performed within six months from the making thereof"
+      },
+      "correctAnswer": "C",
+      "explanation": "Under Article 1403(2)(d) of the Civil Code, an agreement for the sale of goods, chattels or things in action, at a price not less than five hundred pesos, is unenforceable by action unless the same or some note or memorandum thereof be in writing, unless the buyer accepts and receives part of such goods, or pays at the time some part of the purchase money.",
+      "solution": null,
+      "legalBasis": "Civil Code of the Philippines, Article 1403(2)(d)"
+    },
+    {
+      "id": 48,
+      "subject": "RFBT",
+      "topic": "Law on Sales",
+      "difficulty": "Difficult",
+      "question": "S sold a specific parcel of land to B in a private instrument. B did not take physical possession of the land. Two days later, S sold the very same parcel of land to C in a public instrument (notarized deed of sale). C was in good faith and immediately registered the deed of sale with the Registry of Deeds. Who has the better right to the land under Article 1544 (Double Sale) of the Civil Code?",
+      "choices": {
+        "A": "B, because the contract of sale with B was executed first in time (prior tempore, prior jure)",
+        "B": "C, because C was the first to register the sale in good faith in the Registry of Deeds",
+        "C": "S, because both contracts are null and void due to bad faith of the seller",
+        "D": "B and C shall share co-ownership over the parcel of land in equal shares"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under Article 1544 of the Civil Code, if immovable property should have been sold to different vendees, ownership shall belong to the person acquiring it who in good faith first recorded it in the Registry of Property.",
+      "solution": null,
+      "legalBasis": "Civil Code of the Philippines, Article 1544"
+    },
+    {
+      "id": 49,
+      "subject": "RFBT",
+      "topic": "Negotiable Instruments Law",
+      "difficulty": "Moderate",
+      "question": "Under the Negotiable Instruments Law (Act No. 2031), which of the following indorsements converts an instrument originally payable to order into a bearer instrument?",
+      "choices": {
+        "A": "Special indorsement",
+        "B": "Blank indorsement",
+        "C": "Restrictive indorsement",
+        "D": "Qualified indorsement"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under Section 34 of Act No. 2031 (NIL), an indorsement in blank specifies no indorsee, and an instrument so indorsed is payable to bearer, and may be negotiated by delivery alone.",
+      "solution": null,
+      "legalBasis": "Negotiable Instruments Law (Act No. 2031), Section 34"
+    },
+    {
+      "id": 50,
+      "subject": "RFBT",
+      "topic": "Philippine Deposit Insurance Corporation (PDIC)",
+      "difficulty": "Easy",
+      "question": "Under the PDIC Charter (RA 3591, as amended by RA 11840), what is the maximum deposit insurance coverage (MDIC) per depositor per bank in the Philippines?",
+      "choices": {
+        "A": "P250,000",
+        "B": "P500,000",
+        "C": "P1,000,000",
+        "D": "P2,000,000"
+      },
+      "correctAnswer": "B",
+      "explanation": "Under the PDIC Charter (RA 3591 as amended), the Maximum Deposit Insurance Coverage (MDIC) is P500,000 per depositor for all deposit accounts maintained in the same bank (whether individual or joint).",
+      "solution": null,
+      "legalBasis": "Republic Act No. 3591 (PDIC Charter), as amended by Republic Act No. 9576 and Republic Act No. 11840"
+    }
+  ]
+}

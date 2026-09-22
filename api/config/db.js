@@ -9,9 +9,17 @@ let memoryResults = [];
 
 const loadLocalQuestions = () => {
   try {
+    const bundledData = require('../data/cpale_questions.json');
+    if (bundledData && bundledData.questions) {
+      memoryQuestions = bundledData.questions;
+      console.log(`Loaded ${memoryQuestions.length} questions from bundled data`);
+      return;
+    }
+  } catch (e) {
+    // fallback to fs search
     const candidates = [
-      path.resolve(__dirname, '../../cpale_questions.json'),
       path.resolve(__dirname, '../data/cpale_questions.json'),
+      path.resolve(__dirname, '../../cpale_questions.json'),
       path.resolve(process.cwd(), 'cpale_questions.json')
     ];
     for (const p of candidates) {
@@ -22,8 +30,6 @@ const loadLocalQuestions = () => {
         break;
       }
     }
-  } catch (err) {
-    console.error('Error loading questions:', err.message);
   }
 };
 
