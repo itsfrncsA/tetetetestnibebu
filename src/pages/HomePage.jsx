@@ -37,8 +37,14 @@ export default function HomePage({
   }, []);
 
   const handleStart = () => {
+    if (!currentUser) {
+      if (onOpenAuth) onOpenAuth();
+      return;
+    }
+
     const config = {
-      examineeName: examineeName.trim() || 'Examinee',
+      examineeName: currentUser.name || examineeName.trim() || 'Examinee',
+      userId: currentUser.id || currentUser._id,
       mode: examMode,
       subject: selectedSubject === 'ALL' ? undefined : selectedSubject,
       difficulty: selectedDifficulty === 'ALL' ? undefined : selectedDifficulty,
@@ -90,27 +96,12 @@ export default function HomePage({
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flex: 1, minWidth: '220px' }}>
               <Heart size={18} color="#ec4899" fill="#ec4899" />
               <div style={{ width: '100%' }}>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600, marginBottom: '2px' }}>Examinee Name</div>
-                <input 
-                  type="text"
-                  value={examineeName}
-                  onChange={(e) => {
-                    setExamineeName(e.target.value);
-                    localStorage.setItem('cpale_examinee_name', e.target.value);
-                  }}
-                  placeholder="e.g. My Girlfriend's Name"
-                  style={{
-                    width: '100%',
-                    background: 'transparent',
-                    border: 'none',
-                    borderBottom: '1px solid rgba(255,255,255,0.2)',
-                    color: '#fff',
-                    fontSize: '0.95rem',
-                    fontWeight: 600,
-                    outline: 'none',
-                    padding: '2px 0'
-                  }}
-                />
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600, marginBottom: '2px' }}>
+                  {currentUser ? 'Logged In Examinee' : 'Examinee Account'}
+                </div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff' }}>
+                  {currentUser ? currentUser.name : 'Guest (Sign in required to record scores)'}
+                </div>
               </div>
             </div>
 
@@ -119,8 +110,8 @@ export default function HomePage({
               onClick={handleStart}
               style={{ padding: '0.75rem 1.8rem', fontSize: '1rem' }}
             >
-              <Play size={18} fill="#fff" />
-              <span>Begin Exam Session</span>
+              {currentUser ? <Play size={18} fill="#fff" /> : <Sparkles size={18} />}
+              <span>{currentUser ? 'Begin Exam Session' : 'Login to Start Exam'}</span>
             </button>
           </div>
         </div>
