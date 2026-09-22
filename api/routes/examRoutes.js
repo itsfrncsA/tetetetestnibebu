@@ -1,15 +1,16 @@
-const express = require('express');
-const router = express.Router();
-const { 
+import express from 'express';
+import { 
   submitExam, 
   getExamHistory, 
   getExamById, 
   deleteExam 
-} = require('../controllers/examController');
+} from '../controllers/examController.js';
+
+const router = express.Router();
 
 router.post('/submit', submitExam);
 router.get('/history', getExamHistory);
 router.get('/:id', getExamById);
 router.delete('/:id', deleteExam);
 
-module.exports = router;
+export default router;

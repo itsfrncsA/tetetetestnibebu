@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const questionSchema = new mongoose.Schema({
   id: { type: Number, required: true, unique: true },
@@ -28,4 +28,5 @@ const questionSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.models.Question || mongoose.model('Question', questionSchema);
+const Question = mongoose.models.Question || mongoose.model('Question', questionSchema);
+export default Question;

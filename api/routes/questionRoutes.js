@@ -1,14 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const { 
+import express from 'express';
+import { 
   getQuestions, 
   getQuestionById, 
   getSubjectSummary 
-} = require('../controllers/questionController');
+} from '../controllers/questionController.js';
+
+const router = express.Router();
 
 router.get('/', getQuestions);
 router.get('/summary', getSubjectSummary);
 router.get('/summary/overview', getSubjectSummary);
 router.get('/:id', getQuestionById);
 
-module.exports = router;
+export default router;

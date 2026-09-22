@@ -1,10 +1,10 @@
-const ExamResult = require('../models/ExamResult');
-const Question = require('../models/Question');
-const dbStore = require('../config/db');
+import ExamResult from '../models/ExamResult.js';
+import Question from '../models/Question.js';
+import * as dbStore from '../config/db.js';
 
 // @desc    Submit exam, grade answers, and store examinee result
 // @route   POST /api/exams/submit
-exports.submitExam = async (req, res) => {
+export const submitExam = async (req, res) => {
   try {
     const { 
       examineeName = 'Examinee', 
@@ -115,7 +115,7 @@ exports.submitExam = async (req, res) => {
 
 // @desc    Get all exam submissions / history
 // @route   GET /api/exams/history
-exports.getExamHistory = async (req, res) => {
+export const getExamHistory = async (req, res) => {
   try {
     const { name, limit = 100 } = req.query;
 
@@ -152,7 +152,7 @@ exports.getExamHistory = async (req, res) => {
 
 // @desc    Get specific exam submission by ID
 // @route   GET /api/exams/:id
-exports.getExamById = async (req, res) => {
+export const getExamById = async (req, res) => {
   try {
     const { id } = req.params;
     let exam;
@@ -175,7 +175,7 @@ exports.getExamById = async (req, res) => {
 
 // @desc    Delete an exam submission
 // @route   DELETE /api/exams/:id
-exports.deleteExam = async (req, res) => {
+export const deleteExam = async (req, res) => {
   try {
     const { id } = req.params;
 

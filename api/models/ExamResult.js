@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const answerDetailSchema = new mongoose.Schema({
   questionId: { type: Number, required: true },
@@ -45,4 +45,5 @@ const examResultSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.models.ExamResult || mongoose.model('ExamResult', examResultSchema);
+const ExamResult = mongoose.models.ExamResult || mongoose.model('ExamResult', examResultSchema);
+export default ExamResult;

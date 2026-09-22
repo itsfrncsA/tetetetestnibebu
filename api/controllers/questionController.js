@@ -1,9 +1,9 @@
-const Question = require('../models/Question');
-const dbStore = require('../config/db');
+import Question from '../models/Question.js';
+import * as dbStore from '../config/db.js';
 
 // @desc    Get all questions with optional filters
 // @route   GET /api/questions
-exports.getQuestions = async (req, res) => {
+export const getQuestions = async (req, res) => {
   try {
     const { subject, difficulty, limit, shuffle } = req.query;
     let questions = [];
@@ -43,7 +43,7 @@ exports.getQuestions = async (req, res) => {
 
 // @desc    Get single question by ID
 // @route   GET /api/questions/:id
-exports.getQuestionById = async (req, res) => {
+export const getQuestionById = async (req, res) => {
   try {
     const qId = parseInt(req.params.id);
     let question;
@@ -66,7 +66,7 @@ exports.getQuestionById = async (req, res) => {
 
 // @desc    Get subject overview and counts
 // @route   GET /api/questions/summary
-exports.getSubjectSummary = async (req, res) => {
+export const getSubjectSummary = async (req, res) => {
   try {
     let questions = [];
     if (dbStore.isMongo()) {

@@ -1,7 +1,11 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
-const path = require('path');
-const Question = require('../models/Question');
+import mongoose from 'mongoose';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import Question from '../models/Question.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let isMongoConnected = false;
 let memoryQuestions = [];
@@ -9,18 +13,11 @@ let memoryResults = [];
 
 const loadLocalQuestions = () => {
   try {
-    const bundledData = require('../data/cpale_questions.json');
-    if (bundledData && bundledData.questions) {
-      memoryQuestions = bundledData.questions;
-      console.log(`Loaded ${memoryQuestions.length} questions from bundled data`);
-      return;
-    }
-  } catch (e) {
-    // fallback to fs search
     const candidates = [
       path.resolve(__dirname, '../data/cpale_questions.json'),
       path.resolve(__dirname, '../../cpale_questions.json'),
-      path.resolve(process.cwd(), 'cpale_questions.json')
+      path.resolve(process.cwd(), 'cpale_questions.json'),
+      path.resolve(process.cwd(), 'public/cpale_questions.json')
     ];
     for (const p of candidates) {
       if (fs.existsSync(p)) {
@@ -30,10 +27,12 @@ const loadLocalQuestions = () => {
         break;
       }
     }
+  } catch (err) {
+    console.error('Error loading questions:', err.message);
   }
 };
 
-const connectDB = async () => {
+export const connectDB = async () => {
   loadLocalQuestions();
   const mongoURI = process.env.MONGO_URI || process.env.MONGODB_URI;
   if (!mongoURI) {
@@ -61,19 +60,16 @@ const connectDB = async () => {
   }
 };
 
-module.exports = {
-  connectDB,
-  isMongo: () => isMongoConnected,
-  getMemoryQuestions: () => memoryQuestions,
-  getMemoryResults: () => memoryResults,
-  addMemoryResult: (result) => {
-    const item = {
-      _id: 'res_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
-      ...result,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-    memoryResults.unshift(item);
-    return item;
-  }
+export const isMongo = () => isMongoConnected;
+export const getMemoryQuestions = () => memoryQuestions;
+export const getMemoryResults = () => memoryResults;
+export const addMemoryResult = (result) => {
+  const item = {
+    _id: 'res_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+    ...result,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  memoryResults.unshift(item);
+  return item;
 };
