@@ -52,7 +52,7 @@ if (fs.existsSync(distPath)) {
 
 export default app;
 
-if (process.env.NODE_ENV !== 'production' && process.env.PORT) {
+if (!process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`CPALE Reviewer Backend running on http://localhost:${PORT}`);
   });
