@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Lock, User as UserIcon, Mail, ShieldCheck, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, Lock, User as UserIcon, Mail, ShieldCheck, Sparkles, CheckCircle2, AlertCircle, GraduationCap } from 'lucide-react';
 
 export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -61,7 +61,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
       position: 'fixed',
       inset: 0,
       zIndex: 350,
-      background: 'rgba(0,0,0,0.75)',
+      background: 'rgba(14, 10, 26, 0.85)',
       backdropFilter: 'blur(8px)',
       display: 'flex',
       alignItems: 'center',
@@ -72,16 +72,16 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
         maxWidth: '440px',
         width: '100%',
         padding: '2rem',
-        background: '#111827',
-        border: '1px solid rgba(255,255,255,0.12)',
+        background: '#1e1434',
+        border: '1px solid rgba(255,193,7,0.25)',
         borderRadius: '20px',
         boxShadow: '0 20px 50px rgba(0,0,0,0.8)'
       }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'linear-gradient(135deg, #6366f1, #a855f7)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <ShieldCheck size={20} color="#fff" />
+            <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'linear-gradient(135deg, #ffc107, #ff9800)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <GraduationCap size={22} color="#171128" />
             </div>
             <div>
               <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff' }}>
@@ -102,7 +102,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
         </div>
 
         {/* Tab Switcher */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: 'rgba(0,0,0,0.3)', padding: '3px', borderRadius: '10px', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: 'rgba(0,0,0,0.35)', padding: '4px', borderRadius: '12px', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.06)' }}>
           <button
             type="button"
             onClick={() => { setIsLogin(true); setError(''); }}
@@ -110,9 +110,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
               padding: '0.5rem',
               borderRadius: '8px',
               border: 'none',
-              background: isLogin ? '#6366f1' : 'transparent',
-              color: isLogin ? '#fff' : '#94a3b8',
-              fontWeight: 700,
+              background: isLogin ? '#4b2c79' : 'transparent',
+              color: isLogin ? '#ffc107' : '#94a3b8',
+              fontWeight: 800,
               fontSize: '0.85rem',
               cursor: 'pointer',
               transition: 'all 0.2s ease'
@@ -127,9 +127,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
               padding: '0.5rem',
               borderRadius: '8px',
               border: 'none',
-              background: !isLogin ? '#6366f1' : 'transparent',
-              color: !isLogin ? '#fff' : '#94a3b8',
-              fontWeight: 700,
+              background: !isLogin ? '#4b2c79' : 'transparent',
+              color: !isLogin ? '#ffc107' : '#94a3b8',
+              fontWeight: 800,
               fontSize: '0.85rem',
               cursor: 'pointer',
               transition: 'all 0.2s ease'
@@ -156,7 +156,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
                 Full Name
               </label>
               <div style={{ position: 'relative' }}>
-                <UserIcon size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '12px' }} />
+                <UserIcon size={16} color="#94a3b8" style={{ position: 'absolute', left: '12px', top: '12px' }} />
                 <input 
                   type="text"
                   required
@@ -166,8 +166,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
                   style={{
                     width: '100%',
                     padding: '0.65rem 0.8rem 0.65rem 2.4rem',
-                    background: '#0b0f19',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    background: '#120a22',
+                    border: '1px solid rgba(255,255,255,0.12)',
                     borderRadius: '10px',
                     color: '#fff',
                     fontSize: '0.9rem',
@@ -183,7 +183,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
               Username
             </label>
             <div style={{ position: 'relative' }}>
-              <UserIcon size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '12px' }} />
+              <UserIcon size={16} color="#94a3b8" style={{ position: 'absolute', left: '12px', top: '12px' }} />
               <input 
                 type="text"
                 required
@@ -193,8 +193,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
                 style={{
                   width: '100%',
                   padding: '0.65rem 0.8rem 0.65rem 2.4rem',
-                  background: '#0b0f19',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  background: '#120a22',
+                  border: '1px solid rgba(255,255,255,0.12)',
                   borderRadius: '10px',
                   color: '#fff',
                   fontSize: '0.9rem',
@@ -209,7 +209,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
               Password
             </label>
             <div style={{ position: 'relative' }}>
-              <Lock size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '12px' }} />
+              <Lock size={16} color="#94a3b8" style={{ position: 'absolute', left: '12px', top: '12px' }} />
               <input 
                 type="password"
                 required
@@ -219,8 +219,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
                 style={{
                   width: '100%',
                   padding: '0.65rem 0.8rem 0.65rem 2.4rem',
-                  background: '#0b0f19',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  background: '#120a22',
+                  border: '1px solid rgba(255,255,255,0.12)',
                   borderRadius: '10px',
                   color: '#fff',
                   fontSize: '0.9rem',
@@ -233,7 +233,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary"
+            className="btn btn-gold"
             style={{ width: '100%', padding: '0.75rem', marginTop: '0.5rem', fontSize: '0.95rem' }}
           >
             {loading ? 'Processing...' : isLogin ? 'Sign In' : 'Register Account'}

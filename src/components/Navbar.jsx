@@ -1,5 +1,16 @@
-import React, { useState } from 'react';
-import { BookOpen, Award, History, Calculator, User, Sparkles, Heart, LogIn, LogOut, ShieldCheck } from 'lucide-react';
+import React from 'react';
+import { 
+  BookOpen, 
+  Award, 
+  History, 
+  Calculator, 
+  User, 
+  LogIn, 
+  LogOut, 
+  ShieldCheck,
+  Search,
+  GraduationCap
+} from 'lucide-react';
 
 export default function Navbar({
   activePage,
@@ -11,45 +22,33 @@ export default function Navbar({
   onLogout,
   onOpenCalculator
 }) {
-  const [isEditingName, setIsEditingName] = useState(false);
-  const [tempName, setTempName] = useState(examineeName);
-
-  const handleSaveName = (e) => {
-    e.preventDefault();
-    if (tempName.trim()) {
-      setExamineeName(tempName.trim());
-      localStorage.setItem('cpale_examinee_name', tempName.trim());
-    }
-    setIsEditingName(false);
-  };
-
   const isSuperadmin = currentUser && (currentUser.role === 'superadmin' || currentUser.username === 'superadmin');
 
   return (
     <header className="navbar">
       <div className="nav-container">
-        {/* Brand */}
+        {/* Udema Brand Logo */}
         <div className="nav-brand" onClick={() => setActivePage('home')}>
           <div className="nav-logo-badge">
-            <span>CPA</span>
+            <GraduationCap size={22} color="#171128" />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <span>CPALE Portal</span>
-              <span style={{ fontSize: '0.7rem', background: '#3b82f6', color: '#fff', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>2026</span>
+              <span style={{ fontWeight: 900, letterSpacing: '0.5px' }}>UDEMA</span>
+              <span style={{ fontSize: '0.65rem', background: '#ffc107', color: '#171128', padding: '1px 6px', borderRadius: '4px', fontWeight: 800 }}>CPALE 2026</span>
             </div>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 500 }}>Philippine Board Reviewer</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 500 }}>Philippine Board Reviewer Portal</div>
           </div>
         </div>
 
-        {/* Navigation buttons */}
+        {/* Navigation links */}
         <nav className="nav-links">
           <button
             className={`nav-btn ${activePage === 'home' ? 'active' : ''}`}
             onClick={() => setActivePage('home')}
           >
             <BookOpen size={16} />
-            <span>Dashboard</span>
+            <span>Courses & Drills</span>
           </button>
 
           <button
@@ -57,7 +56,7 @@ export default function Navbar({
             onClick={() => setActivePage('archive')}
           >
             <History size={16} />
-            <span>Examinee Results & Archive</span>
+            <span>Examinee Archive</span>
           </button>
 
           <button
@@ -71,20 +70,32 @@ export default function Navbar({
           </button>
         </nav>
 
-        {/* Auth & User Profile Area */}
+        {/* Right CTA & Auth Area */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+          
+          {/* Gold Admission / Quick Mock Exam Button */}
+          <button 
+            className="btn btn-gold"
+            onClick={() => {
+              setActivePage('home');
+              window.scrollTo({ top: 350, behavior: 'smooth' });
+            }}
+            style={{ fontSize: '0.8rem', padding: '0.45rem 1rem' }}
+          >
+            MOCK EXAM
+          </button>
 
           {currentUser ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <div className="examinee-pill" style={{ background: isSuperadmin ? 'rgba(99, 102, 241, 0.15)' : 'rgba(255, 255, 255, 0.06)', borderColor: isSuperadmin ? '#6366f1' : 'var(--border-color)' }}>
-                <div className="examinee-avatar" style={{ background: isSuperadmin ? 'linear-gradient(135deg, #6366f1, #a855f7)' : 'linear-gradient(135deg, #ec4899, #8b5cf6)' }}>
-                  {isSuperadmin ? <ShieldCheck size={14} color="#fff" /> : currentUser.name.charAt(0).toUpperCase()}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div className="examinee-pill" style={{ background: isSuperadmin ? 'rgba(107, 59, 168, 0.4)' : 'rgba(255, 255, 255, 0.08)', borderColor: isSuperadmin ? '#ffc107' : 'var(--border-color)' }}>
+                <div className="examinee-avatar">
+                  {isSuperadmin ? <ShieldCheck size={14} color="#171128" /> : currentUser.name.charAt(0).toUpperCase()}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontWeight: 700, fontSize: '0.85rem', color: '#fff', lineHeight: '1.2' }}>
+                  <span style={{ fontWeight: 700, fontSize: '0.82rem', color: '#fff', lineHeight: '1.2' }}>
                     {currentUser.name}
                   </span>
-                  <span style={{ fontSize: '0.65rem', color: isSuperadmin ? '#a5b4fc' : '#94a3b8', fontWeight: 600 }}>
+                  <span style={{ fontSize: '0.62rem', color: isSuperadmin ? '#ffc107' : '#cbd5e1', fontWeight: 700 }}>
                     {isSuperadmin ? 'Super Admin' : `@${currentUser.username}`}
                   </span>
                 </div>
@@ -100,16 +111,14 @@ export default function Navbar({
               </button>
             </div>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <button
-                className="btn btn-primary"
-                onClick={onOpenAuth}
-                style={{ padding: '0.45rem 0.9rem', fontSize: '0.85rem' }}
-              >
-                <LogIn size={15} />
-                <span>Login / Register</span>
-              </button>
-            </div>
+            <button
+              className="btn btn-secondary"
+              onClick={onOpenAuth}
+              style={{ padding: '0.45rem 0.9rem', fontSize: '0.85rem' }}
+            >
+              <LogIn size={15} />
+              <span>Login</span>
+            </button>
           )}
 
         </div>
