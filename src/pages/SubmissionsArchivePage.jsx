@@ -17,6 +17,7 @@ import {
 import { apiService } from '../services/api';
 
 export default function SubmissionsArchivePage({ 
+  currentUser,
   onInspectSubmission, 
   onStartNewExam 
 }) {

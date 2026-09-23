@@ -17,6 +17,8 @@ import { apiService } from '../services/api';
 export default function HomePage({ 
   examineeName, 
   setExamineeName, 
+  currentUser,
+  onOpenAuth,
   onStartExam, 
   onNavigate 
 }) {
