@@ -43,9 +43,8 @@ export default function ScratchpadModal({ isOpen, onClose }) {
     <div style={{
       position: 'fixed',
       inset: 0,
-      zIndex: 200,
-      background: 'rgba(0,0,0,0.6)',
-      backdropFilter: 'blur(4px)',
+      zIndex: 250,
+      background: 'rgba(10, 5, 18, 0.75)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

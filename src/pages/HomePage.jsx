@@ -3,20 +3,20 @@ import {
   Award, 
   Play, 
   BookOpen, 
-  Sparkles, 
   CheckCircle, 
   Clock, 
   ShieldCheck, 
   Filter, 
   History,
-  TrendingUp,
-  Search,
   GraduationCap,
   Star,
-  Layers,
   ChevronRight,
   Calculator,
-  Target
+  Target,
+  FileText,
+  Scale,
+  ExternalLink,
+  Library
 } from 'lucide-react';
 import { apiService } from '../services/api';
 
@@ -32,7 +32,6 @@ export default function HomePage({
   const [selectedSubject, setSelectedSubject] = useState('ALL');
   const [selectedDifficulty, setSelectedDifficulty] = useState('ALL');
   const [examMode, setExamMode] = useState('mock'); // 'mock' | 'practice' | 'drill'
-  const [searchQuery, setSearchQuery] = useState('');
   const [customLimit, setCustomLimit] = useState(50);
   const [loading, setLoading] = useState(true);
 
@@ -64,157 +63,129 @@ export default function HomePage({
     onStartExam(config);
   };
 
-  const subjectCoverGradients = {
-    FAR: 'linear-gradient(135deg, #1e3a8a, #3b82f6)',
-    AFAR: 'linear-gradient(135deg, #065f46, #10b981)',
-    MAS: 'linear-gradient(135deg, #78350f, #f59e0b)',
-    AUD: 'linear-gradient(135deg, #581c87, #a855f7)',
-    TAX: 'linear-gradient(135deg, #881337, #f43f5e)',
-    RFBT: 'linear-gradient(135deg, #164e63, #06b6d4)'
+  const subjectCoverColors = {
+    FAR: '#1e3a8a',
+    AFAR: '#065f46',
+    MAS: '#78350f',
+    AUD: '#581c87',
+    TAX: '#881337',
+    RFBT: '#164e63'
   };
+
+  const referencesList = [
+    {
+      subject: 'FAR',
+      title: 'Financial Accounting and Reporting',
+      sources: [
+        'Philippine Financial Reporting Standards (PFRS) & Philippine Accounting Standards (PAS)',
+        'Conceptual Framework for Financial Reporting (FRSC)',
+        'Practical Financial Accounting (Valix, Peralta, Valix)',
+        'Intermediate Accounting 1, 2, & 3 (Robles & Empleo)'
+      ]
+    },
+    {
+      subject: 'AFAR',
+      title: 'Advanced Financial Accounting & Reporting',
+      sources: [
+        'PFRS 3 (Business Combinations), PFRS 10 (Consolidated Financial Statements)',
+        'PFRS 15 (Revenue from Contracts with Customers)',
+        'Advanced Financial Accounting & Reporting Reviewer (Dayag / De Jesus / Guerrero)',
+        'PAS 21 (The Effects of Changes in Foreign Exchange Rates)'
+      ]
+    },
+    {
+      subject: 'MAS',
+      title: 'Management Advisory Services',
+      sources: [
+        'Managerial Accounting (Garrison, Noreen, Brewer)',
+        'Management Advisory Services Reviewer (Cabrera / Agamata / Bobadilla)',
+        'Financial Management & Quantitative Techniques (Horngren)'
+      ]
+    },
+    {
+      subject: 'AUD',
+      title: 'Auditing (Theory and Problems)',
+      sources: [
+        'Philippine Standards on Auditing (PSA 200 - PSA 700 Series)',
+        'Code of Ethics for Professional Accountants in the Philippines (PICPA/PRC BOA)',
+        'Auditing Theory & Practice (Salosagcol, Tiu, Ocampo / Escala)'
+      ]
+    },
+    {
+      subject: 'TAX',
+      title: 'Taxation',
+      sources: [
+        'National Internal Revenue Code (NIRC) of the Philippines as amended by RA 10963 (TRAIN Law)',
+        'Corporate Recovery and Tax Incentives for Enterprises (CREATE Act - RA 11534)',
+        'Ease of Paying Taxes (EOPT) Act (RA 11976 - 2024)',
+        'Reviewer in Taxation (Tabag & Garcia / Co Untian / De Leon)'
+      ]
+    },
+    {
+      subject: 'RFBT',
+      title: 'Regulatory Framework for Business Transactions',
+      sources: [
+        'Revised Corporation Code of the Philippines (Republic Act No. 11232)',
+        'Civil Code of the Philippines (Law on Sales, Obligations & Contracts, Law on Partnerships)',
+        'Anti-Money Laundering Act (AMLA - RA 9160 as amended)',
+        'RFBT Compendium & Reviewer (Soriano / De Leon / Andrix)'
+      ]
+    },
+    {
+      subject: 'BOA',
+      title: 'PRC Board of Accountancy Grading Metrics',
+      sources: [
+        'Philippine Accountancy Act of 2004 (Republic Act No. 9298)',
+        'PRC Professional Regulatory Board of Accountancy (BOA) Table of Specifications (TOS)',
+        'Section 15 Passing Criteria: General Average ≥ 75.00% with No Subject Below 65.00%'
+      ]
+    }
+  ];
 
   return (
     <div style={{ minHeight: '100vh', paddingBottom: '5rem' }}>
       
-      {/* Udema Hero Banner */}
-      <section style={{
-        background: 'linear-gradient(180deg, #241442 0%, #351f56 60%, #171128 100%)',
-        padding: '4.5rem 1.5rem 5rem',
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        borderBottom: '1px solid rgba(255,255,255,0.06)'
-      }}>
-        {/* Ambient Glows */}
-        <div style={{
-          position: 'absolute',
-          top: '-80px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '600px',
-          height: '350px',
-          borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(255, 193, 7, 0.12) 0%, rgba(107, 59, 168, 0.25) 50%, transparent 80%)',
-          pointerEvents: 'none'
-        }} />
-
-        <div style={{ maxWidth: '850px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255, 193, 7, 0.12)', border: '1px solid rgba(255, 193, 7, 0.3)', padding: '0.35rem 1rem', borderRadius: '999px', fontSize: '0.82rem', color: '#ffc107', fontWeight: 700, marginBottom: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-            <Sparkles size={15} />
-            <span>Official Philippine CPA Licensure Reviewer</span>
-          </div>
-
-          <h1 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.5px', marginBottom: '0.8rem', lineHeight: 1.2 }}>
-            WHAT WOULD YOU MASTER?
-          </h1>
-
-          <p style={{ fontSize: '1.1rem', color: '#cbd5e1', lineHeight: 1.6, marginBottom: '2.2rem', maxWidth: '700px', margin: '0 auto 2.2rem' }}>
-            Increase your expertise in Financial Accounting, Advanced Accounting, Auditing, Management Advisory, Taxation, and Philippine Business Law.
-          </p>
-
-          {/* Hero Search & Filter Bar */}
-          <div style={{
-            maxWidth: '680px',
-            margin: '0 auto 2rem',
-            background: '#ffffff',
-            borderRadius: '9999px',
-            padding: '6px 8px 6px 20px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.8rem',
-            boxShadow: '0 12px 35px rgba(0,0,0,0.5)'
-          }}>
-            <Search size={20} color="#6b3ba8" />
-            <input 
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Ex. Cash and Cash Equivalents, CREATE Act, Partnerships..."
-              style={{
-                flex: 1,
-                border: 'none',
-                outline: 'none',
-                fontSize: '0.95rem',
-                color: '#1f2937',
-                background: 'transparent'
-              }}
-            />
-            <button 
-              onClick={() => handleStart()}
-              className="btn btn-primary"
-              style={{
-                borderRadius: '9999px',
-                padding: '0.65rem 1.6rem',
-                fontSize: '0.9rem',
-                fontWeight: 700,
-                background: '#4b2c79',
-                color: '#fff',
-                border: 'none'
-              }}
-            >
-              Start Drill
-            </button>
-          </div>
-
-          {/* User Quick Info */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.8rem', background: 'rgba(0,0,0,0.35)', padding: '0.5rem 1.2rem', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.08)', fontSize: '0.85rem' }}>
-            <span style={{ color: '#94a3b8' }}>Examinee:</span>
-            <strong style={{ color: '#fff' }}>{currentUser ? currentUser.name : 'Guest User'}</strong>
-            {!currentUser && (
-              <button 
-                onClick={onOpenAuth}
-                style={{ background: '#ffc107', color: '#171128', border: 'none', padding: '2px 8px', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 800, cursor: 'pointer' }}
-              >
-                Sign In
-              </button>
-            )}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Udema Stats / Features Banner Strip */}
-      <section style={{ background: '#171128', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '2rem 1.5rem' }}>
+      {/* Top Banner Bar */}
+      <section style={{ background: '#160e26', borderBottom: '1px solid #2c1c4d', padding: '1.75rem 1.5rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(255,193,7,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,193,7,0.25)' }}>
-              <GraduationCap size={24} color="#ffc107" />
+            <div style={{ width: '44px', height: '44px', borderRadius: '8px', background: '#261840', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #38275c' }}>
+              <GraduationCap size={22} color="#ffc107" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1.05rem' }}>+50 Board Questions</div>
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Explore mock tests in 6 CPALE subjects</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1rem' }}>+50 Board Questions</div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Mock questions in 6 CPALE subjects</div>
             </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(16,185,129,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(16,185,129,0.25)' }}>
-              <Award size={24} color="#34d399" />
+            <div style={{ width: '44px', height: '44px', borderRadius: '8px', background: '#261840', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #38275c' }}>
+              <Award size={22} color="#34d399" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1.05rem' }}>PRC BOA Standards</div>
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>75% General Average & 65% Subject Rule</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1rem' }}>PRC BOA Standards</div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>75% General Average & 65% Rule</div>
             </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(99,102,241,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(99,102,241,0.25)' }}>
-              <Target size={24} color="#818cf8" />
+            <div style={{ width: '44px', height: '44px', borderRadius: '8px', background: '#261840', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #38275c' }}>
+              <Target size={22} color="#818cf8" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1.05rem' }}>Focus on Target</div>
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Detailed math solutions & legal citations</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1rem' }}>Focus on Target</div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Math solutions & statutory citations</div>
             </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(244,63,94,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(244,63,94,0.25)' }}>
-              <Calculator size={24} color="#fb7185" />
+            <div style={{ width: '44px', height: '44px', borderRadius: '8px', background: '#261840', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #38275c' }}>
+              <Calculator size={22} color="#fb7185" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1.05rem' }}>Real-time Scratchpad</div>
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Built-in financial and tax calculator</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1rem' }}>Real-time Scratchpad</div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Financial and tax calculator</div>
             </div>
           </div>
 
@@ -222,36 +193,42 @@ export default function HomePage({
       </section>
 
       {/* Main Content Area */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3.5rem 1.5rem 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 0' }}>
 
-        {/* Section 1: Select a Review Mode (Udema Topic selector style) */}
-        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
-            Select Review Mode
-          </h2>
-          <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
-            Choose how you want to train and review for the licensure exam
-          </p>
+        {/* Section 1: Select Review Mode */}
+        <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+              Select Review Mode
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+              Choose your training and mock exam simulation mode
+            </p>
+          </div>
+
+          <div style={{ fontSize: '0.85rem', color: '#cbd5e1', background: '#1c1230', padding: '0.4rem 0.8rem', borderRadius: '6px', border: '1px solid #2c1c4d' }}>
+            Examinee: <strong style={{ color: '#ffc107' }}>{currentUser ? currentUser.name : 'Guest User'}</strong>
+          </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem', marginBottom: '3.5rem' }}>
           
           {/* Mock Board Exam Mode */}
           <div 
             onClick={() => setExamMode('mock')}
-            className={`udema-feature-card ${examMode === 'mock' ? 'active-mode' : ''}`}
+            className="udema-feature-card"
             style={{
-              border: examMode === 'mock' ? '2px solid #ffc107' : '1px solid rgba(255,255,255,0.08)',
-              background: examMode === 'mock' ? 'rgba(75, 44, 121, 0.35)' : 'var(--bg-card)'
+              border: examMode === 'mock' ? '2px solid #ffc107' : '1px solid #2c1c4d',
+              background: examMode === 'mock' ? '#261840' : '#1c1230'
             }}
           >
-            <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(255,193,7,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.2rem' }}>
-              <Award size={28} color="#ffc107" />
+            <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: '#341a5c', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+              <Award size={24} color="#ffc107" />
             </div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.6rem' }}>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
               Mock Board Exam Mode
             </h3>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.5, marginBottom: '1.2rem' }}>
+            <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.5, marginBottom: '1.2rem' }}>
               Simulates actual PRC Board conditions with 3-hour timer, question flagging, and official passing scorecard.
             </p>
             <button 
@@ -266,25 +243,25 @@ export default function HomePage({
           {/* Self-Paced Practice */}
           <div 
             onClick={() => setExamMode('practice')}
-            className={`udema-feature-card ${examMode === 'practice' ? 'active-mode' : ''}`}
+            className="udema-feature-card"
             style={{
-              border: examMode === 'practice' ? '2px solid #34d399' : '1px solid rgba(255,255,255,0.08)',
-              background: examMode === 'practice' ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-card)'
+              border: examMode === 'practice' ? '2px solid #34d399' : '1px solid #2c1c4d',
+              background: examMode === 'practice' ? '#261840' : '#1c1230'
             }}
           >
-            <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(16,185,129,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.2rem' }}>
-              <BookOpen size={28} color="#34d399" />
+            <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: '#341a5c', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+              <BookOpen size={24} color="#34d399" />
             </div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.6rem' }}>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
               Self-Paced Practice
             </h3>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.5, marginBottom: '1.2rem' }}>
-              Learn as you answer with instant step-by-step mathematical computations and Philippine statutory legal bases.
+            <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.5, marginBottom: '1.2rem' }}>
+              Learn as you answer with instant step-by-step mathematical computations and statutory legal citations.
             </p>
             <button 
               className="btn btn-primary"
               onClick={(e) => { e.stopPropagation(); setExamMode('practice'); handleStart(); }}
-              style={{ width: '100%', fontSize: '0.85rem', background: '#059669' }}
+              style={{ width: '100%', fontSize: '0.85rem', background: '#059669', borderColor: '#10b981' }}
             >
               Start Practice Mode
             </button>
@@ -293,19 +270,19 @@ export default function HomePage({
           {/* Subject & Topic Drill */}
           <div 
             onClick={() => setExamMode('drill')}
-            className={`udema-feature-card ${examMode === 'drill' ? 'active-mode' : ''}`}
+            className="udema-feature-card"
             style={{
-              border: examMode === 'drill' ? '2px solid #818cf8' : '1px solid rgba(255,255,255,0.08)',
-              background: examMode === 'drill' ? 'rgba(99, 102, 241, 0.2)' : 'var(--bg-card)'
+              border: examMode === 'drill' ? '2px solid #818cf8' : '1px solid #2c1c4d',
+              background: examMode === 'drill' ? '#261840' : '#1c1230'
             }}
           >
-            <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(99,102,241,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.2rem' }}>
-              <Filter size={28} color="#818cf8" />
+            <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: '#341a5c', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+              <Filter size={24} color="#818cf8" />
             </div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.6rem' }}>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
               Subject & Topic Drill
             </h3>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.5, marginBottom: '1.2rem' }}>
+            <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.5, marginBottom: '1.2rem' }}>
               Target specific CPALE subjects (e.g. Focus on Taxation under CREATE & EOPT, or Business Combinations in AFAR).
             </p>
             <button 
@@ -319,84 +296,82 @@ export default function HomePage({
 
         </div>
 
-        {/* Section 2: Udema Popular Courses / CPALE Exam Subjects (50 Items) */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+        {/* Section 2: CPALE Exam Subjects (50 Items) */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
-            <div style={{ color: '#ffc107', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.3rem' }}>
-              Curated Question Bank
-            </div>
-            <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#fff' }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
               CPALE Exam Subjects (50 Items)
             </h2>
+            <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+              Curated board questions with full computations and legal references
+            </p>
           </div>
 
           <button 
             onClick={() => onNavigate('archive')}
-            style={{ background: 'transparent', border: 'none', color: '#ffc107', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.92rem', fontWeight: 700, cursor: 'pointer' }}
+            style={{ background: 'transparent', border: 'none', color: '#ffc107', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', fontWeight: 700, cursor: 'pointer' }}
           >
-            <History size={17} />
+            <History size={16} />
             <span>View Examinee Archive & Results →</span>
           </button>
         </div>
 
         {/* Courses Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.25rem', marginBottom: '4rem' }}>
           {subjectSummary.map(subj => (
             <div key={subj.code} className="udema-course-card">
               
-              {/* Course Top Graphic */}
-              <div className="udema-course-img" style={{ background: subjectCoverGradients[subj.code] || 'linear-gradient(135deg, #351f56, #4b2c79)' }}>
+              {/* Course Top Bar */}
+              <div className="udema-course-img" style={{ background: subjectCoverColors[subj.code] || '#341a5c' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', letterSpacing: '1px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+                  <div style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', letterSpacing: '1px' }}>
                     {subj.code}
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.9)', fontWeight: 600 }}>
-                    Philippine CPA Licensure Board
+                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
+                    Philippine CPA Board Exam
                   </div>
                 </div>
 
-                {/* Question count pill */}
                 <div style={{
                   position: 'absolute',
-                  top: '12px',
-                  right: '12px',
-                  background: 'rgba(0,0,0,0.5)',
-                  backdropFilter: 'blur(8px)',
+                  top: '10px',
+                  right: '10px',
+                  background: '#120a22',
                   color: '#ffc107',
-                  fontSize: '0.75rem',
+                  fontSize: '0.72rem',
                   fontWeight: 800,
-                  padding: '3px 9px',
-                  borderRadius: '999px',
-                  border: '1px solid rgba(255,193,7,0.4)'
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  border: '1px solid #38275c'
                 }}>
                   {subj.total} Items
                 </div>
               </div>
 
               {/* Course Body */}
-              <div style={{ padding: '1.4rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+              <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                     <span className={`badge badge-${subj.code}`}>{subj.code}</span>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '2px', color: '#ffc107', fontSize: '0.8rem', fontWeight: 700 }}>
-                      <Star size={14} fill="#ffc107" />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '2px', color: '#ffc107', fontSize: '0.78rem', fontWeight: 700 }}>
+                      <Star size={13} fill="#ffc107" />
                       <span>5.0</span>
                     </div>
                   </div>
 
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fff', marginBottom: '0.8rem' }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 800, color: '#fff', marginBottom: '0.7rem' }}>
                     {subj.name}
                   </h3>
 
                   {/* Topics Tags */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1.2rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', marginBottom: '1.2rem' }}>
                     {subj.topics && subj.topics.slice(0, 3).map(t => (
-                      <span key={t} style={{ fontSize: '0.72rem', color: '#cbd5e1', background: 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: '4px' }}>
+                      <span key={t} style={{ fontSize: '0.7rem', color: '#cbd5e1', background: '#261840', padding: '2px 6px', borderRadius: '4px', border: '1px solid #38275c' }}>
                         {t}
                       </span>
                     ))}
                     {subj.topics && subj.topics.length > 3 && (
-                      <span style={{ fontSize: '0.72rem', color: '#ffc107', fontWeight: 700 }}>
+                      <span style={{ fontSize: '0.7rem', color: '#ffc107', fontWeight: 700 }}>
                         +{subj.topics.length - 3} more
                       </span>
                     )}
@@ -404,17 +379,17 @@ export default function HomePage({
                 </div>
 
                 {/* Course Card Action */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem', marginTop: '0.5rem' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-                    Standard: <strong>PRC BOA</strong>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #2c1c4d', paddingTop: '0.9rem', marginTop: '0.5rem' }}>
+                  <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
+                    Board Standard: <strong>PRC BOA</strong>
                   </span>
                   <button 
                     className="btn btn-primary"
                     onClick={() => handleStart(subj.code)}
-                    style={{ padding: '0.45rem 1rem', fontSize: '0.82rem' }}
+                    style={{ padding: '0.4rem 0.9rem', fontSize: '0.8rem' }}
                   >
                     <span>Practice {subj.code}</span>
-                    <ChevronRight size={14} />
+                    <ChevronRight size={13} />
                   </button>
                 </div>
 
@@ -422,6 +397,42 @@ export default function HomePage({
 
             </div>
           ))}
+        </div>
+
+        {/* Section 3: References & Question Bank Sources */}
+        <div style={{ marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
+            <Library size={22} color="#ffc107" />
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+              References & Reviewer Sources
+            </h2>
+          </div>
+          <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+            All 50 mock examination questions, mathematical solutions, and statutory citations are curated based on official Philippine standards and authoritative review literature:
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
+            {referencesList.map((ref) => (
+              <div key={ref.subject} className="reference-card">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.3rem' }}>
+                  <span className={`badge badge-${ref.subject === 'BOA' ? 'FAR' : ref.subject}`}>
+                    {ref.subject}
+                  </span>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600 }}>Philippine Standards</span>
+                </div>
+                <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#fff' }}>
+                  {ref.title}
+                </h4>
+                <ul style={{ listStyleType: 'disc', paddingLeft: '1.1rem', margin: '0.3rem 0 0', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                  {ref.sources.map((src, i) => (
+                    <li key={i} style={{ fontSize: '0.78rem', color: '#cbd5e1', lineHeight: '1.4' }}>
+                      {src}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
