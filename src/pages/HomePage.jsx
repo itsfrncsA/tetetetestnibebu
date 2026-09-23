@@ -91,17 +91,18 @@ export default function HomePage({
       .finally(() => setLoading(false));
   }, []);
 
-  const handleStart = (overrideSubject = null) => {
+  const handleStart = (overrideSubject = null, overrideMode = null) => {
     if (!currentUser) {
       if (onOpenAuth) onOpenAuth();
       return;
     }
 
+    const currentMode = overrideMode || (overrideSubject ? 'drill' : examMode);
     const subj = overrideSubject || (selectedSubject === 'ALL' ? undefined : selectedSubject);
     const config = {
       examineeName: currentUser.name || examineeName.trim() || 'Examinee',
       userId: currentUser.id || currentUser._id,
-      mode: overrideSubject ? 'drill' : examMode,
+      mode: currentMode,
       subject: subj,
       difficulty: selectedDifficulty === 'ALL' ? undefined : selectedDifficulty,
       limit: !subj ? customLimit : undefined,
@@ -402,7 +403,7 @@ export default function HomePage({
             </p>
             <button 
               className="btn btn-gold"
-              onClick={(e) => { e.stopPropagation(); setExamMode('mock'); handleStart(); }}
+              onClick={(e) => { e.stopPropagation(); setExamMode('mock'); handleStart(null, 'mock'); }}
               style={{ width: '100%', fontSize: '0.85rem' }}
             >
               Start Mock Exam
@@ -429,7 +430,7 @@ export default function HomePage({
             </p>
             <button 
               className="btn btn-primary"
-              onClick={(e) => { e.stopPropagation(); setExamMode('practice'); handleStart(); }}
+              onClick={(e) => { e.stopPropagation(); setExamMode('practice'); handleStart(null, 'practice'); }}
               style={{ width: '100%', fontSize: '0.85rem', background: '#059669', borderColor: '#10b981' }}
             >
               Start Practice Mode

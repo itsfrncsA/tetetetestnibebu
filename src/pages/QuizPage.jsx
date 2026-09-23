@@ -52,7 +52,12 @@ export default function QuizPage({
 
   // Initial load if not restored from session
   useEffect(() => {
-    if (savedSession.current?.questions?.length) {
+    // Only use saved session if it matches the current examConfig mode and subject
+    const isMatchingSession = savedSession.current && 
+      savedSession.current.examConfig?.mode === examConfig.mode &&
+      savedSession.current.examConfig?.subject === examConfig.subject;
+
+    if (isMatchingSession && savedSession.current?.questions?.length) {
       setLoading(false);
       return;
     }
