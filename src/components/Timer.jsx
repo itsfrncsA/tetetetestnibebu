@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Clock, AlertCircle } from 'lucide-react';
 
-export default function Timer({ durationSeconds, onTimeUp, onTick, isPaused = false }) {
-  const [timeLeft, setTimeLeft] = useState(durationSeconds);
+export default function Timer({ 
+  durationSeconds = 10800, 
+  initialTimeSpent = 0,
+  onTimeUp, 
+  onTick, 
+  isPaused = false 
+}) {
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const remaining = durationSeconds - (initialTimeSpent || 0);
+    return remaining > 0 ? remaining : 0;
+  });
 
   useEffect(() => {
-    setTimeLeft(durationSeconds);
-  }, [durationSeconds]);
+    const remaining = durationSeconds - (initialTimeSpent || 0);
+    setTimeLeft(remaining > 0 ? remaining : 0);
+  }, [durationSeconds, initialTimeSpent]);
 
   useEffect(() => {
     if (isPaused || timeLeft <= 0) {
@@ -17,7 +27,8 @@ export default function Timer({ durationSeconds, onTimeUp, onTick, isPaused = fa
     const interval = setInterval(() => {
       setTimeLeft(prev => {
         const nextVal = prev - 1;
-        if (onTick) onTick(durationSeconds - nextVal);
+        const currentSpent = durationSeconds - nextVal;
+        if (onTick) onTick(currentSpent);
         if (nextVal <= 0) {
           clearInterval(interval);
           if (onTimeUp) onTimeUp();
@@ -42,12 +53,12 @@ export default function Timer({ durationSeconds, onTimeUp, onTick, isPaused = fa
       alignItems: 'center',
       gap: '0.5rem',
       padding: '0.4rem 0.85rem',
-      borderRadius: '999px',
-      background: isWarning ? 'rgba(239, 68, 68, 0.15)' : 'rgba(99, 102, 241, 0.12)',
-      border: `1px solid ${isWarning ? 'rgba(239, 68, 68, 0.4)' : 'rgba(99, 102, 241, 0.3)'}`,
-      color: isWarning ? '#fca5a5' : '#a5b4fc',
+      borderRadius: '6px',
+      background: isWarning ? 'rgba(239, 68, 68, 0.2)' : '#261840',
+      border: `1px solid ${isWarning ? 'rgba(239, 68, 68, 0.5)' : '#38275c'}`,
+      color: isWarning ? '#fca5a5' : '#ffc107',
       fontFamily: 'var(--font-mono)',
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: '0.9rem'
     }}>
       {isWarning ? <AlertCircle size={16} color="#ef4444" /> : <Clock size={16} />}

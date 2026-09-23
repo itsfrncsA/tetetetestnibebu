@@ -9,7 +9,21 @@ import SubmissionsArchivePage from './pages/SubmissionsArchivePage';
 import DetailedAnswerReviewPage from './pages/DetailedAnswerReviewPage';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home'); // 'home' | 'quiz' | 'results' | 'archive' | 'review'
+  // Restore active page: If an active quiz session exists in localStorage, automatically resume on 'quiz'
+  const [activePage, setActivePage] = useState(() => {
+    try {
+      const activeQuiz = localStorage.getItem('cpale_active_quiz_state');
+      if (activeQuiz) {
+        const parsed = JSON.parse(activeQuiz);
+        if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+          return 'quiz';
+        }
+      }
+      return localStorage.getItem('cpale_active_page') || 'home';
+    } catch (e) {
+      return 'home';
+    }
+  });
   
   // Auth State
   const [currentUser, setCurrentUser] = useState(() => {
@@ -27,12 +41,30 @@ export default function App() {
     return localStorage.getItem('cpale_examinee_name') || 'Student';
   });
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
-  const [examConfig, setExamConfig] = useState({
-    examineeName: 'Student',
-    mode: 'mock',
-    shuffle: true
+  
+  const [examConfig, setExamConfig] = useState(() => {
+    try {
+      const activeQuiz = localStorage.getItem('cpale_active_quiz_state');
+      if (activeQuiz) {
+        const parsed = JSON.parse(activeQuiz);
+        if (parsed && parsed.examConfig) return parsed.examConfig;
+      }
+    } catch (e) {}
+    return {
+      examineeName: 'Student',
+      mode: 'mock',
+      shuffle: true
+    };
   });
-  const [currentResult, setCurrentResult] = useState(null);
+
+  const [currentResult, setCurrentResult] = useState(() => {
+    try {
+      const saved = localStorage.getItem('cpale_current_result');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [inspectSubmissionId, setInspectSubmissionId] = useState(null);
   const [inspectSubmissionData, setInspectSubmissionData] = useState(null);
 
@@ -44,6 +76,13 @@ export default function App() {
     }
   }, [currentUser]);
 
+  const handlePageChange = (page) => {
+    setActivePage(page);
+    try {
+      localStorage.setItem('cpale_active_page', page);
+    } catch (e) {}
+  };
+
   const handleAuthSuccess = (user) => {
     setCurrentUser(user);
     localStorage.setItem('cpale_auth_user', JSON.stringify(user));
@@ -52,29 +91,34 @@ export default function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('cpale_auth_user');
+    handlePageChange('home');
   };
 
   const handleStartExam = (config) => {
+    // Clear any previous quiz session when explicitly starting a fresh exam
+    localStorage.removeItem('cpale_active_quiz_state');
     setExamConfig(config);
-    setActivePage('quiz');
+    handlePageChange('quiz');
   };
 
   const handleFinishExam = (resultData) => {
     setCurrentResult(resultData);
-    setActivePage('results');
+    localStorage.setItem('cpale_current_result', JSON.stringify(resultData));
+    localStorage.removeItem('cpale_active_quiz_state');
+    handlePageChange('results');
   };
 
   const handleInspectSubmission = (submissionId) => {
     setInspectSubmissionId(submissionId);
     setInspectSubmissionData(null);
-    setActivePage('review');
+    handlePageChange('review');
   };
 
   const handleViewCurrentDetailedReview = () => {
     if (currentResult) {
       setInspectSubmissionData(currentResult);
       setInspectSubmissionId(currentResult._id || currentResult.id);
-      setActivePage('review');
+      handlePageChange('review');
     }
   };
 
@@ -83,7 +127,7 @@ export default function App() {
       {/* Top Navbar */}
       <Navbar 
         activePage={activePage}
-        setActivePage={setActivePage}
+        setActivePage={handlePageChange}
         examineeName={examineeName}
         setExamineeName={setExamineeName}
         currentUser={currentUser}
@@ -101,7 +145,7 @@ export default function App() {
             currentUser={currentUser}
             onOpenAuth={() => setIsAuthModalOpen(true)}
             onStartExam={handleStartExam}
-            onNavigate={(page) => setActivePage(page)}
+            onNavigate={(page) => handlePageChange(page)}
           />
         )}
 
@@ -116,9 +160,9 @@ export default function App() {
         {activePage === 'results' && (
           <ResultsPage 
             result={currentResult}
-            onRetake={() => setActivePage('home')}
+            onRetake={() => handlePageChange('home')}
             onViewDetailedReview={handleViewCurrentDetailedReview}
-            onNavigateArchive={() => setActivePage('archive')}
+            onNavigateArchive={() => handlePageChange('archive')}
           />
         )}
 
@@ -127,7 +171,7 @@ export default function App() {
             currentUser={currentUser}
             examineeName={examineeName}
             onInspectSubmission={handleInspectSubmission}
-            onStartNewExam={() => setActivePage('home')}
+            onStartNewExam={() => handlePageChange('home')}
           />
         )}
 
@@ -135,7 +179,7 @@ export default function App() {
           <DetailedAnswerReviewPage 
             submissionId={inspectSubmissionId}
             submissionData={inspectSubmissionData}
-            onBack={() => setActivePage('archive')}
+            onBack={() => handlePageChange('archive')}
           />
         )}
       </main>
