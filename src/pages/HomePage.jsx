@@ -154,8 +154,8 @@ export default function HomePage({
               <GraduationCap size={22} color="#ffc107" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1rem' }}>+50 Board Questions</div>
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Mock questions in 6 CPALE subjects</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: '1rem' }}>100+ Question Pool</div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Fresh randomized 50-item mock tests</div>
             </div>
           </div>
 
@@ -300,10 +300,10 @@ export default function HomePage({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
-              CPALE Exam Subjects (50 Items)
+              CPALE Exam Subjects (100 Questions)
             </h2>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
-              Curated board questions with full computations and legal references
+              Curated question bank with balanced randomized 50-item mock exam sampling
             </p>
           </div>
 
@@ -408,7 +408,7 @@ export default function HomePage({
             </h2>
           </div>
           <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-            All 50 mock examination questions, mathematical solutions, and statutory citations are curated based on official Philippine standards and authoritative review literature:
+            All 100 mock examination questions, mathematical solutions, and statutory citations are curated based on official Philippine standards and authoritative review literature:
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>

@@ -1,38 +1,55 @@
 import Question from '../models/Question.js';
 import * as dbStore from '../config/db.js';
 
+// Helper for balanced mock sampling across all 6 CPALE subjects
+const sampleBalancedMock = (allQuestions) => {
+  const quotas = { FAR: 10, AFAR: 10, MAS: 8, AUD: 8, TAX: 7, RFBT: 7 };
+  let selected = [];
+
+  Object.keys(quotas).forEach(subj => {
+    const pool = allQuestions.filter(q => q.subject === subj).sort(() => Math.random() - 0.5);
+    selected.push(...pool.slice(0, quotas[subj]));
+  });
+
+  return selected.sort(() => Math.random() - 0.5);
+};
+
 // @desc    Get all questions with optional filters
 // @route   GET /api/questions
 export const getQuestions = async (req, res) => {
   try {
-    const { subject, topic, difficulty, limit, shuffle } = req.query;
+    const { subject, topic, difficulty, limit, shuffle, mode } = req.query;
     let questions = [];
 
     if (dbStore.isMongo()) {
       const filter = {};
-      if (subject) filter.subject = subject;
-      if (topic) filter.topic = topic;
-      if (difficulty) filter.difficulty = difficulty;
+      if (subject && subject !== 'ALL') filter.subject = subject;
+      if (topic && topic !== 'ALL') filter.topic = topic;
+      if (difficulty && difficulty !== 'ALL') filter.difficulty = difficulty;
       questions = await Question.find(filter).lean();
     } else {
       questions = [...dbStore.getMemoryQuestions()];
-      if (subject) {
+      if (subject && subject !== 'ALL') {
         questions = questions.filter(q => q.subject.toLowerCase() === subject.toLowerCase());
       }
-      if (topic) {
+      if (topic && topic !== 'ALL') {
         questions = questions.filter(q => q.topic.toLowerCase() === topic.toLowerCase());
       }
-      if (difficulty) {
+      if (difficulty && difficulty !== 'ALL') {
         questions = questions.filter(q => q.difficulty.toLowerCase() === difficulty.toLowerCase());
       }
     }
 
-    if (shuffle === 'true' || shuffle === true) {
-      questions = questions.sort(() => Math.random() - 0.5);
-    }
-
-    if (limit && !isNaN(parseInt(limit))) {
-      questions = questions.slice(0, parseInt(limit));
+    // If taking a full 50-item Mock Board Exam across all subjects, do balanced randomized sampling
+    if ((!subject || subject === 'ALL') && (mode === 'mock' || parseInt(limit) === 50)) {
+      questions = sampleBalancedMock(questions);
+    } else {
+      if (shuffle === 'true' || shuffle === true) {
+        questions = questions.sort(() => Math.random() - 0.5);
+      }
+      if (limit && !isNaN(parseInt(limit))) {
+        questions = questions.slice(0, parseInt(limit));
+      }
     }
 
     res.json({

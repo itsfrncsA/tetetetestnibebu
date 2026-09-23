@@ -37,6 +37,7 @@ export default function QuizPage({
   useEffect(() => {
     setLoading(true);
     const params = {
+      mode: examConfig.mode,
       subject: examConfig.subject,
       topic: examConfig.topic,
       difficulty: examConfig.difficulty,

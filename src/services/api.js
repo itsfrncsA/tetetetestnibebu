@@ -3,6 +3,18 @@ import { cpaleQuestions } from '../data/questionsData.js';
 
 const API_BASE = '/api';
 
+const sampleBalancedMock = (allQuestions) => {
+  const quotas = { FAR: 10, AFAR: 10, MAS: 8, AUD: 8, TAX: 7, RFBT: 7 };
+  let selected = [];
+
+  Object.keys(quotas).forEach(subj => {
+    const pool = allQuestions.filter(q => q.subject === subj).sort(() => Math.random() - 0.5);
+    selected.push(...pool.slice(0, quotas[subj]));
+  });
+
+  return selected.sort(() => Math.random() - 0.5);
+};
+
 export const apiService = {
   // Fetch questions (attempts API first, falls back instantly to bundled questions)
   async getQuestions(params = {}) {
@@ -30,12 +42,19 @@ export const apiService = {
     if (params.difficulty && params.difficulty !== 'ALL') {
       list = list.filter(q => q.difficulty.toLowerCase() === params.difficulty.toLowerCase());
     }
-    if (params.shuffle) {
-      list = list.sort(() => Math.random() - 0.5);
+
+    // If Mock Exam across all subjects (or 50 items limit), do balanced randomized selection
+    if ((!params.subject || params.subject === 'ALL') && (params.mode === 'mock' || parseInt(params.limit) === 50)) {
+      list = sampleBalancedMock(list);
+    } else {
+      if (params.shuffle) {
+        list = list.sort(() => Math.random() - 0.5);
+      }
+      if (params.limit && !isNaN(parseInt(params.limit))) {
+        list = list.slice(0, parseInt(params.limit));
+      }
     }
-    if (params.limit && !isNaN(parseInt(params.limit))) {
-      list = list.slice(0, parseInt(params.limit));
-    }
+
     return { success: true, count: list.length, data: list };
   },
 
