@@ -2,14 +2,14 @@
   --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Udema Clean Educational Theme Palette */
-  --udema-purple-dark: #120a22;
-  --udema-purple-main: #1f1238;
-  --udema-purple-light: #341a5c;
-  --udema-purple-accent: #51268f;
-  --udema-gold: #ffc107;
-  --udema-gold-hover: #ffb300;
-  --udema-gold-light: rgba(255, 193, 7, 0.12);
+  /* Clean Educational Theme Palette */
+  --brand-purple-dark: #120a22;
+  --brand-purple-main: #1f1238;
+  --brand-purple-light: #341a5c;
+  --brand-purple-accent: #51268f;
+  --brand-gold: #ffc107;
+  --brand-gold-hover: #ffb300;
+  --brand-gold-light: rgba(255, 193, 7, 0.12);
   
   --bg-primary: #0d0718;
   --bg-secondary: #160e26;
@@ -152,7 +152,7 @@ a {
 }
 
 .nav-btn.active {
-  background: var(--udema-purple-light);
+  background: var(--brand-purple-light);
   color: #ffc107;
   border-color: #4a287e;
 }
@@ -222,13 +222,13 @@ a {
 }
 
 .btn-primary {
-  background: var(--udema-purple-light);
+  background: var(--brand-purple-light);
   color: #fff;
   border: 1px solid #4a287e;
 }
 
 .btn-primary:hover {
-  background: var(--udema-purple-accent);
+  background: var(--brand-purple-accent);
 }
 
 .btn-gold {
@@ -264,7 +264,7 @@ a {
 }
 
 /* Feature Cards */
-.udema-feature-card {
+.udema-feature-card, .feature-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -274,13 +274,13 @@ a {
   cursor: pointer;
 }
 
-.udema-feature-card:hover {
+.udema-feature-card:hover, .feature-card:hover {
   border-color: #ffc107;
   background: var(--bg-card-hover);
 }
 
 /* Course Cards */
-.udema-course-card {
+.udema-course-card, .course-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -290,11 +290,11 @@ a {
   flex-direction: column;
 }
 
-.udema-course-card:hover {
+.udema-course-card:hover, .course-card:hover {
   border-color: #ffc107;
 }
 
-.udema-course-img {
+.udema-course-img, .course-img {
   height: 120px;
   position: relative;
   display: flex;
@@ -341,5 +341,5 @@ a {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--udema-purple-light);
+  background: var(--brand-purple-light);
 }
