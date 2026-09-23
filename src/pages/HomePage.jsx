@@ -263,10 +263,10 @@ export default function HomePage({
         </h2>
         <button 
           onClick={() => onNavigate('archive')}
-          style={{ background: 'transparent', border: 'none', color: '#ec4899', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
+          style={{ background: 'transparent', border: 'none', color: '#6366f1', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer' }}
         >
           <History size={16} />
-          <span>View Girlfriend's Past Results & Answers →</span>
+          <span>View Past Exam Results & Answers →</span>
         </button>
       </div>
 

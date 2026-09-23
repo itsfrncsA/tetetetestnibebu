@@ -24,6 +24,9 @@ export const apiService = {
     if (params.subject && params.subject !== 'ALL') {
       list = list.filter(q => q.subject.toLowerCase() === params.subject.toLowerCase());
     }
+    if (params.topic && params.topic !== 'ALL') {
+      list = list.filter(q => q.topic.toLowerCase() === params.topic.toLowerCase());
+    }
     if (params.difficulty && params.difficulty !== 'ALL') {
       list = list.filter(q => q.difficulty.toLowerCase() === params.difficulty.toLowerCase());
     }
@@ -165,14 +168,32 @@ export const apiService = {
     return { success: true, data: localResult };
   },
 
-  // Get exam submissions / girlfriend's test history
-  async getExamHistory(name = '') {
+  // Get exam submissions / examinee test history
+  async getExamHistory(name = '', currentUser = null, defaultExamineeName = '') {
+    const isSuperadmin = currentUser && (currentUser.role === 'superadmin' || currentUser.username === 'superadmin');
+    
+    // For normal users, lock search query to their own name
+    let queryName = name;
+    if (!isSuperadmin) {
+      if (currentUser?.name) {
+        queryName = currentUser.name;
+      } else if (defaultExamineeName) {
+        queryName = defaultExamineeName;
+      }
+    }
+
     try {
-      const query = name ? `?name=${encodeURIComponent(name)}` : '';
+      const query = queryName ? `?name=${encodeURIComponent(queryName)}` : '';
       const res = await fetch(`${API_BASE}/exams/history${query}`);
       if (res.ok) {
         const data = await res.json();
-        if (data && data.data && data.data.length > 0) return data;
+        if (data && data.data) {
+          let list = data.data;
+          if (!isSuperadmin && currentUser?.name) {
+            list = list.filter(h => h.examineeName?.toLowerCase() === currentUser.name.toLowerCase());
+          }
+          return { success: true, count: list.length, data: list };
+        }
       }
     } catch (err) {
       console.warn('History API error, reading from local history:', err.message);
@@ -180,8 +201,16 @@ export const apiService = {
 
     try {
       let history = JSON.parse(localStorage.getItem('cpale_local_history') || '[]');
-      if (name) {
-        history = history.filter(h => h.examineeName.toLowerCase().includes(name.toLowerCase()));
+      if (!isSuperadmin) {
+        if (currentUser?.name) {
+          history = history.filter(h => h.examineeName?.toLowerCase() === currentUser.name.toLowerCase());
+        } else if (defaultExamineeName) {
+          history = history.filter(h => h.examineeName?.toLowerCase() === defaultExamineeName.toLowerCase());
+        } else if (name) {
+          history = history.filter(h => h.examineeName?.toLowerCase().includes(name.toLowerCase()));
+        }
+      } else if (name) {
+        history = history.filter(h => h.examineeName?.toLowerCase().includes(name.toLowerCase()));
       }
       return { success: true, count: history.length, data: history };
     } catch (e) {

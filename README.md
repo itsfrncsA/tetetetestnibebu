@@ -1,4 +1,4 @@
-# 🇵🇭 Philippine CPALE Reviewer & Practice Portal (MERN Stack)
+# Philippine CPALE Reviewer & Practice Portal (MERN Stack)
 
 A modern full-stack web application designed for the **Philippine Certified Public Accountant Licensure Examination (CPALE)**.
 
@@ -6,7 +6,7 @@ Includes a comprehensive **50-item question bank** with step-by-step mathematica
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 * **50 Curated Mock Exam Questions** across all 6 CPALE subjects:
   * **FAR** — Financial Accounting and Reporting (10 items)
@@ -16,9 +16,9 @@ Includes a comprehensive **50-item question bank** with step-by-step mathematica
   * **TAX** — Taxation (7 items)
   * **RFBT** — Regulatory Framework for Business Transactions (7 items)
 * **Exam Modes**:
-  * 🎓 **Mock Board Exam Mode**: Timed 3-hour exam with flagged questions and official CPALE Board passing rating ($\ge 75\%$ average with no subject $< 65\%$).
-  * ⚡ **Self-Paced Practice Mode**: Instant answer checking with step-by-step solutions and legal citations.
-  * 🎯 **Subject Drill Mode**: Filter by subject or topic.
+  * **Mock Board Exam Mode**: Timed 3-hour exam with flagged questions and official CPALE Board passing rating ($\ge 75\%$ average with no subject $< 65\%$).
+  * **Self-Paced Practice Mode**: Instant answer checking with step-by-step solutions and legal citations.
+  * **Subject Drill Mode**: Filter by subject or topic.
 * **Examinee Results & Submissions Archive**:
   * Save and browse all past submissions by examinee name.
   * Inspect every question answered: selected choice vs. correct answer, color-coded explanations, full mathematical solutions, and Philippine legal basis.
@@ -26,7 +26,7 @@ Includes a comprehensive **50-item question bank** with step-by-step mathematica
 
 ---
 
-## 🚀 Local Development
+## Local Development
 
 ### 1. Install Dependencies
 ```bash
@@ -44,7 +44,7 @@ npm run dev
 
 ---
 
-## ☁️ Deploying to Vercel
+## Deploying to Vercel
 
 This repository is pre-configured with `vercel.json` for **1-click Vercel deployment**:
 

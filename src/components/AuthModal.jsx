@@ -56,13 +56,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
     }
   };
 
-  const handleQuickSuperadmin = () => {
-    setUsername('superadmin');
-    setPassword('qweqwe123');
-    setIsLogin(true);
-    setError('');
-  };
-
   return (
     <div style={{
       position: 'fixed',
@@ -95,7 +88,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
                 {isLogin ? 'Sign In to CPALE Portal' : 'Create Student Account'}
               </h3>
               <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                {isLogin ? 'Access review records & Girlfriend results' : 'Join the CPALE reviewer platform'}
+                {isLogin ? 'Access review records & examinee results' : 'Join the CPALE reviewer platform'}
               </div>
             </div>
           </div>
@@ -106,31 +99,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
           >
             <X size={20} />
           </button>
-        </div>
-
-        {/* Quick Superadmin Pill Banner */}
-        <div 
-          onClick={handleQuickSuperadmin}
-          style={{
-            background: 'rgba(99, 102, 241, 0.12)',
-            border: '1px solid rgba(99, 102, 241, 0.3)',
-            borderRadius: '10px',
-            padding: '0.65rem 0.9rem',
-            marginBottom: '1.2rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            transition: 'all 0.2s ease'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', color: '#a5b4fc', fontWeight: 600 }}>
-            <Sparkles size={14} color="#818cf8" />
-            <span>👑 Quick Fill: <strong>Superadmin Account</strong></span>
-          </div>
-          <span style={{ fontSize: '0.7rem', color: '#cbd5e1', background: 'rgba(255,255,255,0.08)', padding: '2px 6px', borderRadius: '4px' }}>
-            Auto-fill
-          </span>
         </div>
 
         {/* Tab Switcher */}
@@ -185,7 +153,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
           {!isLogin && (
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.3rem' }}>
-                Full Name (or Girlfriend's Name)
+                Full Name
               </label>
               <div style={{ position: 'relative' }}>
                 <UserIcon size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '12px' }} />

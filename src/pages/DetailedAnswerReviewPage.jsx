@@ -84,9 +84,8 @@ export default function DetailedAnswerReviewPage({
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
           <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Examinee:</span>
-          <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+          <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff' }}>
             {exam.examineeName || 'Examinee'}
-            <Heart size={15} color="#ec4899" fill="#ec4899" />
           </span>
           <span style={{
             fontSize: '0.8rem',
@@ -272,7 +271,7 @@ export default function DetailedAnswerReviewPage({
                       <span style={{ flex: 1 }}>{text}</span>
                       {isChosen && (
                         <span style={{ fontSize: '0.7rem', background: isAnswerKey ? '#10b981' : '#ef4444', color: '#fff', padding: '1px 5px', borderRadius: '4px', fontWeight: 700 }}>
-                          Her Choice
+                          Selected Choice
                         </span>
                       )}
                     </div>

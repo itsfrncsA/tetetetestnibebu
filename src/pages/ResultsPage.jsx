@@ -219,7 +219,7 @@ export default function ResultsPage({
             style={{ padding: '0.8rem 1.4rem' }}
           >
             <History size={18} />
-            <span>View Girlfriend's Archive & History</span>
+            <span>View Submissions Archive & History</span>
           </button>
         </div>
 

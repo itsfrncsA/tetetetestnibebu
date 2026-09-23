@@ -125,6 +125,7 @@ export default function App() {
         {activePage === 'archive' && (
           <SubmissionsArchivePage 
             currentUser={currentUser}
+            examineeName={examineeName}
             onInspectSubmission={handleInspectSubmission}
             onStartNewExam={() => setActivePage('home')}
           />

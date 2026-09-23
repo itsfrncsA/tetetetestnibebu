@@ -38,9 +38,10 @@ export default function QuizPage({
     setLoading(true);
     const params = {
       subject: examConfig.subject,
+      topic: examConfig.topic,
       difficulty: examConfig.difficulty,
       limit: examConfig.limit,
-      shuffle: examConfig.mode === 'mock'
+      shuffle: examConfig.shuffle !== undefined ? examConfig.shuffle : (examConfig.mode === 'mock')
     };
 
     apiService.getQuestions(params)

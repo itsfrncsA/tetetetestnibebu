@@ -5,18 +5,22 @@ import * as dbStore from '../config/db.js';
 // @route   GET /api/questions
 export const getQuestions = async (req, res) => {
   try {
-    const { subject, difficulty, limit, shuffle } = req.query;
+    const { subject, topic, difficulty, limit, shuffle } = req.query;
     let questions = [];
 
     if (dbStore.isMongo()) {
       const filter = {};
       if (subject) filter.subject = subject;
+      if (topic) filter.topic = topic;
       if (difficulty) filter.difficulty = difficulty;
       questions = await Question.find(filter).lean();
     } else {
       questions = [...dbStore.getMemoryQuestions()];
       if (subject) {
         questions = questions.filter(q => q.subject.toLowerCase() === subject.toLowerCase());
+      }
+      if (topic) {
+        questions = questions.filter(q => q.topic.toLowerCase() === topic.toLowerCase());
       }
       if (difficulty) {
         questions = questions.filter(q => q.difficulty.toLowerCase() === difficulty.toLowerCase());
