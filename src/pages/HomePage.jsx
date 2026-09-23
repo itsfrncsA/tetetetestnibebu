@@ -19,7 +19,9 @@ import {
   LogIn,
   Quote,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  Layers,
+  ArrowRight
 } from 'lucide-react';
 import { apiService } from '../services/api';
 
@@ -193,53 +195,114 @@ export default function HomePage({
   // ==========================================
   if (!currentUser) {
     return (
-      <div style={{ minHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.5rem 4rem' }}>
-        
-        <div style={{ maxWidth: '680px', width: '100%', textAlign: 'center' }}>
+      <div style={{ minHeight: '85vh', padding: '3rem 1.5rem 5rem' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           
-          {/* Main Emblem */}
-          <div style={{
-            width: '72px',
-            height: '72px',
-            borderRadius: '16px',
-            background: '#ffc107',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 1.5rem',
-            boxShadow: '0 8px 24px rgba(255, 193, 7, 0.25)'
-          }}>
-            <GraduationCap size={40} color="#120a22" />
-          </div>
-
-          <h1 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.5px', marginBottom: '0.5rem', lineHeight: 1.2 }}>
-            Philippine CPALE Portal
-          </h1>
-          <p style={{ fontSize: '1.05rem', color: '#94a3b8', marginBottom: '2.2rem' }}>
-            Personal Board Reviewer & Practice System
-          </p>
-
-          {/* Randomized Motivational Quote Card */}
-          <div style={{
-            background: '#1c1230',
-            border: '1px solid #2c1c4d',
-            borderRadius: '14px',
-            padding: '1.8rem 2rem',
-            textAlign: 'center',
-            position: 'relative',
-            marginBottom: '2.2rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.8rem' }}>
-              <Quote size={28} color="#ffc107" style={{ opacity: 0.8 }} />
+          {/* Top Hero Section */}
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            
+            {/* Top Announcement Pill */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: '#19102c',
+              border: '1px solid #38245c',
+              borderRadius: '9999px',
+              padding: '0.35rem 1rem',
+              fontSize: '0.8rem',
+              color: '#ffc107',
+              fontWeight: 700,
+              marginBottom: '1.5rem'
+            }}>
+              <GraduationCap size={16} color="#ffc107" />
+              <span>Philippine Certified Public Accountant Licensure Exam (CPALE) 2026</span>
             </div>
 
-            <p style={{ fontSize: '1.08rem', fontStyle: 'italic', color: '#f1f5f9', lineHeight: 1.6, marginBottom: '1rem', fontWeight: 500 }}>
+            <h1 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.5px', marginBottom: '0.75rem', lineHeight: 1.2 }}>
+              Master the Board Exam with Confidence
+            </h1>
+            
+            <p style={{ fontSize: '1.1rem', color: '#94a3b8', maxWidth: '720px', margin: '0 auto 2rem', lineHeight: 1.6 }}>
+              A dedicated personal reviewer featuring 100+ verified CPALE questions, balanced 50-item mock simulations, step-by-step mathematical computations, and statutory legal citations.
+            </p>
+
+            {/* CTA Buttons */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+              <button
+                onClick={onOpenAuth}
+                className="btn btn-gold"
+                style={{
+                  padding: '0.9rem 2.5rem',
+                  fontSize: '1rem',
+                  fontWeight: 800,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  boxShadow: '0 4px 20px rgba(255, 193, 7, 0.25)'
+                }}
+              >
+                <LogIn size={18} />
+                <span>Sign In to Start Review</span>
+              </button>
+
+              <button
+                onClick={onOpenAuth}
+                className="btn btn-secondary"
+                style={{
+                  padding: '0.9rem 1.8rem',
+                  fontSize: '0.95rem',
+                  fontWeight: 700
+                }}
+              >
+                <BookOpen size={18} color="#cbd5e1" />
+                <span>Create Student Account</span>
+              </button>
+            </div>
+
+            {/* Highlights Bar */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', color: '#cbd5e1', fontSize: '0.82rem' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: '#19102c', border: '1px solid #2b1a4a', padding: '0.4rem 0.85rem', borderRadius: '6px' }}>
+                <CheckCircle size={15} color="#10b981" />
+                <strong>100+ Board Questions</strong>
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: '#19102c', border: '1px solid #2b1a4a', padding: '0.4rem 0.85rem', borderRadius: '6px' }}>
+                <CheckCircle size={15} color="#10b981" />
+                <strong>PRC BOA 75% Standards</strong>
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: '#19102c', border: '1px solid #2b1a4a', padding: '0.4rem 0.85rem', borderRadius: '6px' }}>
+                <CheckCircle size={15} color="#10b981" />
+                <strong>Step-by-Step Math Solutions</strong>
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: '#19102c', border: '1px solid #2b1a4a', padding: '0.4rem 0.85rem', borderRadius: '6px' }}>
+                <CheckCircle size={15} color="#10b981" />
+                <strong>Statutory Law Citations</strong>
+              </span>
+            </div>
+
+          </div>
+
+          {/* Solid Motivational Quote Card */}
+          <div style={{
+            background: '#19102c',
+            border: '1px solid #2b1a4a',
+            borderTop: '3px solid #ffc107',
+            borderRadius: '12px',
+            padding: '1.75rem 2rem',
+            textAlign: 'center',
+            marginBottom: '3.5rem',
+            boxShadow: '0 6px 24px rgba(0,0,0,0.3)'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}>
+              <Quote size={24} color="#ffc107" />
+            </div>
+
+            <p style={{ fontSize: '1.05rem', fontStyle: 'italic', color: '#f8fafc', lineHeight: 1.6, marginBottom: '0.8rem', fontWeight: 500 }}>
               "{currentQuote.quote}"
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem' }}>
-              <span style={{ fontSize: '0.82rem', color: '#ffc107', fontWeight: 700, letterSpacing: '0.3px' }}>
+              <span style={{ fontSize: '0.82rem', color: '#ffc107', fontWeight: 700 }}>
                 — {currentQuote.author}
               </span>
 
@@ -247,16 +310,16 @@ export default function HomePage({
                 onClick={handleNextQuote}
                 title="Shuffle new motivational quote"
                 style={{
-                  background: '#261840',
-                  border: '1px solid #38275c',
+                  background: '#24163f',
+                  border: '1px solid #3d2466',
                   color: '#cbd5e1',
-                  borderRadius: '6px',
-                  padding: '3px 8px',
+                  borderRadius: '4px',
+                  padding: '3px 9px',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
-                  fontSize: '0.72rem',
+                  fontSize: '0.75rem',
                   fontWeight: 600
                 }}
               >
@@ -266,50 +329,249 @@ export default function HomePage({
             </div>
           </div>
 
-          {/* Single Main Action: Sign In Button */}
-          <button
-            onClick={onOpenAuth}
-            className="btn btn-gold"
-            style={{
-              padding: '0.85rem 2.5rem',
-              fontSize: '1.05rem',
-              fontWeight: 800,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              marginBottom: '2.5rem',
-              boxShadow: '0 6px 20px rgba(255, 193, 7, 0.35)'
-            }}
-          >
-            <LogIn size={20} />
-            <span>Sign In to Start Review</span>
-          </button>
+          {/* Feature Highlights (4 Solid Cards) */}
+          <div style={{ marginBottom: '3.5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>
+                Engineered for CPALE Board Exam Success
+              </h2>
+              <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+                Key features designed to simulate real exam pressure and provide thorough understanding
+              </p>
+            </div>
 
-          {/* Simple Clean Highlights Strip */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.2rem', color: '#94a3b8', fontSize: '0.82rem' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <CheckCircle size={14} color="#34d399" />
-              100+ Board Questions
-            </span>
-            <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <CheckCircle size={14} color="#34d399" />
-              6 Core CPALE Subjects
-            </span>
-            <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <CheckCircle size={14} color="#34d399" />
-              PRC BOA Standards
-            </span>
-            <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <CheckCircle size={14} color="#34d399" />
-              Detailed Solutions
-            </span>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.2rem' }}>
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderRadius: '10px', padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <Award size={22} color="#ffc107" />
+                </div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
+                  Mock Exam Simulation
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
+                  Balanced 50-item randomized test across all 6 subjects with a 3-hour timer, question flags, and instant PRC passing scorecard.
+                </p>
+              </div>
+
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderRadius: '10px', padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <Calculator size={22} color="#34d399" />
+                </div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
+                  Step-by-Step Math
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
+                  Every quantitative question in FAR, AFAR, and MAS features exhaustive line-by-line calculations and balance proofs.
+                </p>
+              </div>
+
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderRadius: '10px', padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <Scale size={22} color="#f43f5e" />
+                </div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
+                  Updated Philippine Laws
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
+                  Fully compliant with RA 11976 (Ease of Paying Taxes Act), CREATE Act, Revised Corporation Code, and latest PFRS/PSA standards.
+                </p>
+              </div>
+
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderRadius: '10px', padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <ShieldCheck size={22} color="#818cf8" />
+                </div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
+                  Auto-Saved Progress
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5 }}>
+                  Session persistence ensures your active examination answers and timer are never lost if you accidentally refresh.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 6 Core Subjects Grid */}
+          <div style={{ marginBottom: '3.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>
+                  6 CPALE Core Review Subjects
+                </h2>
+                <p style={{ color: '#94a3b8', fontSize: '0.88rem' }}>
+                  Total of 100 questions covering the full PRC Board Table of Specifications (TOS)
+                </p>
+              </div>
+
+              <button
+                onClick={onOpenAuth}
+                style={{ background: 'transparent', border: 'none', color: '#ffc107', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+              >
+                <span>Sign in to practice subjects</span>
+                <ChevronRight size={14} />
+              </button>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.2rem' }}>
+              {[
+                { 
+                  code: 'FAR', 
+                  name: 'Financial Accounting and Reporting', 
+                  items: '20 Questions', 
+                  border: '#3b82f6', 
+                  topics: ['PFRS 15 Revenue', 'PFRS 16 Leases', 'PAS 16 PPE & Depreciation', 'PAS 2 Inventories (FIFO/AVCO)'] 
+                },
+                { 
+                  code: 'AFAR', 
+                  name: 'Advanced Financial Accounting & Reporting', 
+                  items: '20 Questions', 
+                  border: '#10b981', 
+                  topics: ['PFRS 3 Business Combinations', 'Goodwill Computation', 'PFRS 10 Consolidations', 'PAS 21 Forex & Derivatives'] 
+                },
+                { 
+                  code: 'MAS', 
+                  name: 'Management Advisory Services', 
+                  items: '16 Questions', 
+                  border: '#f59e0b', 
+                  topics: ['Cost-Volume-Profit (CVP)', 'Break-even Point Analysis', 'Operating Leverage', 'Standard Cost Variances'] 
+                },
+                { 
+                  code: 'AUD', 
+                  name: 'Auditing (Theory & Problems)', 
+                  items: '16 Questions', 
+                  border: '#a855f7', 
+                  topics: ['PSA 700 Auditor Reports', 'Audit Risk Model (AAR = IR × CR × DR)', 'Substantive Testing', 'Internal Controls'] 
+                },
+                { 
+                  code: 'TAX', 
+                  name: 'Taxation (TRAIN, CREATE, EOPT)', 
+                  items: '14 Questions', 
+                  border: '#f43f5e', 
+                  topics: ['RA 11976 (EOPT Act)', 'CREATE Act 20%/25% CIT', '12% VAT Computation', 'Capital Gains & Income Tax'] 
+                },
+                { 
+                  code: 'RFBT', 
+                  name: 'Regulatory Framework for Business Transactions', 
+                  items: '14 Questions', 
+                  border: '#06b6d4', 
+                  topics: ['Revised Corporation Code (RA 11232)', 'Obligations & Contracts', 'Law on Sales & Partnerships', 'AMLA (RA 9160)'] 
+                }
+              ].map(s => (
+                <div key={s.code} style={{
+                  background: '#19102c',
+                  border: '1px solid #2b1a4a',
+                  borderTop: `3px solid ${s.border}`,
+                  borderRadius: '10px',
+                  padding: '1.4rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+                      <span className={`badge badge-${s.code}`}>{s.code}</span>
+                      <span style={{ fontSize: '0.78rem', color: s.border, fontWeight: 700, background: '#120a22', padding: '2px 8px', borderRadius: '4px', border: '1px solid #2b1a4a' }}>
+                        {s.items}
+                      </span>
+                    </div>
+
+                    <h3 style={{ fontSize: '1rem', fontWeight: 800, color: '#fff', marginBottom: '0.8rem' }}>
+                      {s.name}
+                    </h3>
+
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1.2rem' }}>
+                      {s.topics.map((t, idx) => (
+                        <span key={idx} style={{ fontSize: '0.72rem', color: '#cbd5e1', background: '#24163f', padding: '2px 7px', borderRadius: '4px', border: '1px solid #38275c' }}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={onOpenAuth}
+                    className="btn btn-secondary"
+                    style={{ width: '100%', fontSize: '0.82rem', padding: '0.5rem', display: 'flex', justifyContent: 'center' }}
+                  >
+                    <span>Sign In to Start {s.code}</span>
+                    <ChevronRight size={14} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Section: Official PRC BOA Grading Standard */}
+          <div style={{
+            background: '#140c24',
+            border: '1px solid #2b1a4a',
+            borderRadius: '12px',
+            padding: '1.75rem 2rem',
+            marginBottom: '3rem'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+              <Scale size={22} color="#ffc107" />
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff' }}>
+                PRC Board of Accountancy (BOA) Passing Criteria
+              </h3>
+            </div>
+            <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '1rem' }}>
+              Under Republic Act No. 9298 (Philippine Accountancy Act of 2004), a candidate is rated under the following official standard:
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderLeft: '3px solid #10b981', padding: '1rem', borderRadius: '6px' }}>
+                <div style={{ color: '#34d399', fontWeight: 800, fontSize: '0.9rem', marginBottom: '0.2rem' }}>PASSED</div>
+                <div style={{ color: '#94a3b8', fontSize: '0.78rem' }}>
+                  General Weighted Average (GWA) ≥ 75.00% AND no grade lower than 65.00% in any subject.
+                </div>
+              </div>
+
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderLeft: '3px solid #f59e0b', padding: '1rem', borderRadius: '6px' }}>
+                <div style={{ color: '#fbbf24', fontWeight: 800, fontSize: '0.9rem', marginBottom: '0.2rem' }}>CONDITIONED</div>
+                <div style={{ color: '#94a3b8', fontSize: '0.78rem' }}>
+                  Obtained a general average of ≥ 75.00% but scored below 65.00% in not more than 2 subjects.
+                </div>
+              </div>
+
+              <div style={{ background: '#19102c', border: '1px solid #2b1a4a', borderLeft: '3px solid #ef4444', padding: '1rem', borderRadius: '6px' }}>
+                <div style={{ color: '#f87171', fontWeight: 800, fontSize: '0.9rem', marginBottom: '0.2rem' }}>FAILED</div>
+                <div style={{ color: '#94a3b8', fontSize: '0.78rem' }}>
+                  General average &lt; 75.00%, or obtained below 65.00% in 3 or more subjects.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* References & Reviewer Sources Preview */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
+              <Library size={20} color="#ffc107" />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff' }}>
+                Official Philippine Reviewer References
+              </h3>
+            </div>
+            <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
+              All questions adhere to PRC BOA Table of Specifications, Valix, Robles & Empleo, Dayag, Cabrera, PSA, NIRC (TRAIN/CREATE/EOPT), and RA 11232.
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '0.85rem' }}>
+              {referencesList.slice(0, 6).map(ref => (
+                <div key={ref.subject} className="reference-card">
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
+                    <span className={`badge badge-${ref.subject}`}>{ref.subject}</span>
+                    <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Philippine Standards</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.88rem', fontWeight: 800, color: '#fff' }}>{ref.title}</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#cbd5e1', margin: 0 }}>
+                    {ref.sources[0]}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
-
       </div>
     );
   }
@@ -321,15 +583,15 @@ export default function HomePage({
     <div style={{ minHeight: '100vh', paddingBottom: '5rem' }}>
       
       {/* Welcome & Motivational Quote Header Banner */}
-      <section style={{ background: '#160e26', borderBottom: '1px solid #2c1c4d', padding: '1.8rem 1.5rem' }}>
+      <section style={{ background: '#140c24', borderBottom: '1px solid #2b1a4a', padding: '1.5rem 1.5rem' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
           
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#ffc107', fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.3rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#ffc107', fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.2rem' }}>
               <Sparkles size={16} />
               <span>Welcome Back, {currentUser.name}!</span>
             </div>
-            <p style={{ color: '#cbd5e1', fontSize: '0.92rem', fontStyle: 'italic', margin: 0 }}>
+            <p style={{ color: '#cbd5e1', fontSize: '0.9rem', fontStyle: 'italic', margin: 0 }}>
               "{currentQuote.quote}"
             </p>
           </div>
@@ -337,10 +599,10 @@ export default function HomePage({
           <button
             onClick={handleNextQuote}
             style={{
-              background: '#261840',
-              border: '1px solid #38275c',
+              background: '#22163b',
+              border: '1px solid #3b2260',
               color: '#cbd5e1',
-              borderRadius: '6px',
+              borderRadius: '4px',
               padding: '0.4rem 0.8rem',
               cursor: 'pointer',
               display: 'flex',
@@ -363,31 +625,31 @@ export default function HomePage({
         {/* Section 1: Select Review Mode */}
         <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>
               Select Review Mode
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+            <p style={{ color: '#94a3b8', fontSize: '0.88rem' }}>
               Choose your training and mock exam simulation mode
             </p>
           </div>
 
-          <div style={{ fontSize: '0.85rem', color: '#cbd5e1', background: '#1c1230', padding: '0.4rem 0.8rem', borderRadius: '6px', border: '1px solid #2c1c4d' }}>
+          <div style={{ fontSize: '0.82rem', color: '#cbd5e1', background: '#19102c', padding: '0.35rem 0.75rem', borderRadius: '6px', border: '1px solid #2b1a4a' }}>
             Examinee: <strong style={{ color: '#ffc107' }}>{currentUser.name}</strong>
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem', marginBottom: '3.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.2rem', marginBottom: '3.5rem' }}>
           
           {/* Mock Board Exam Mode */}
           <div 
             onClick={() => setExamMode('mock')}
             className="feature-card"
             style={{
-              border: examMode === 'mock' ? '2px solid #ffc107' : '1px solid #2c1c4d',
-              background: examMode === 'mock' ? '#261840' : '#1c1230'
+              border: examMode === 'mock' ? '2px solid #ffc107' : '1px solid #2b1a4a',
+              background: examMode === 'mock' ? '#22163b' : '#19102c'
             }}
           >
-            <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: '#341a5c', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
               <Award size={24} color="#ffc107" />
             </div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
@@ -410,11 +672,11 @@ export default function HomePage({
             onClick={() => setExamMode('practice')}
             className="feature-card"
             style={{
-              border: examMode === 'practice' ? '2px solid #34d399' : '1px solid #2c1c4d',
-              background: examMode === 'practice' ? '#261840' : '#1c1230'
+              border: examMode === 'practice' ? '2px solid #34d399' : '1px solid #2b1a4a',
+              background: examMode === 'practice' ? '#22163b' : '#19102c'
             }}
           >
-            <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: '#341a5c', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
               <BookOpen size={24} color="#34d399" />
             </div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
@@ -437,11 +699,11 @@ export default function HomePage({
             onClick={() => setExamMode('drill')}
             className="feature-card"
             style={{
-              border: examMode === 'drill' ? '2px solid #818cf8' : '1px solid #2c1c4d',
-              background: examMode === 'drill' ? '#261840' : '#1c1230'
+              border: examMode === 'drill' ? '2px solid #818cf8' : '1px solid #2b1a4a',
+              background: examMode === 'drill' ? '#22163b' : '#19102c'
             }}
           >
-            <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: '#341a5c', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '8px', background: '#2c1a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
               <Filter size={24} color="#818cf8" />
             </div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
@@ -464,17 +726,17 @@ export default function HomePage({
         {/* Section 2: CPALE Exam Subjects (100 Questions) */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>
               CPALE Exam Subjects (100 Questions)
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+            <p style={{ color: '#94a3b8', fontSize: '0.88rem' }}>
               Curated question bank with balanced randomized 50-item mock exam sampling
             </p>
           </div>
 
           <button 
             onClick={() => onNavigate('archive')}
-            style={{ background: 'transparent', border: 'none', color: '#ffc107', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.9rem', fontWeight: 700, cursor: 'pointer' }}
+            style={{ background: 'transparent', border: 'none', color: '#ffc107', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer' }}
           >
             <History size={16} />
             <span>View Examinee Archive & Results →</span>
@@ -482,14 +744,14 @@ export default function HomePage({
         </div>
 
         {/* Courses Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.25rem', marginBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.2rem', marginBottom: '4rem' }}>
           {subjectSummary.map(subj => (
             <div key={subj.code} className="course-card">
               
               {/* Course Top Bar */}
-              <div className="course-img" style={{ background: subjectCoverColors[subj.code] || '#341a5c' }}>
+              <div className="course-img" style={{ background: subjectCoverColors[subj.code] || '#2c1a4b' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', letterSpacing: '1px' }}>
+                  <div style={{ fontSize: '1.9rem', fontWeight: 900, color: '#fff', letterSpacing: '1px' }}>
                     {subj.code}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
@@ -501,7 +763,7 @@ export default function HomePage({
                   position: 'absolute',
                   top: '10px',
                   right: '10px',
-                  background: '#120a22',
+                  background: '#10081d',
                   color: '#ffc107',
                   fontSize: '0.72rem',
                   fontWeight: 800,
@@ -531,7 +793,7 @@ export default function HomePage({
                   {/* Topics Tags */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', marginBottom: '1.2rem' }}>
                     {subj.topics && subj.topics.slice(0, 3).map(t => (
-                      <span key={t} style={{ fontSize: '0.7rem', color: '#cbd5e1', background: '#261840', padding: '2px 6px', borderRadius: '4px', border: '1px solid #38275c' }}>
+                      <span key={t} style={{ fontSize: '0.7rem', color: '#cbd5e1', background: '#22163b', padding: '2px 6px', borderRadius: '4px', border: '1px solid #38275c' }}>
                         {t}
                       </span>
                     ))}
@@ -544,7 +806,7 @@ export default function HomePage({
                 </div>
 
                 {/* Course Card Action */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #2c1c4d', paddingTop: '0.9rem', marginTop: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #2b1a4a', paddingTop: '0.9rem', marginTop: '0.5rem' }}>
                   <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
                     Board Standard: <strong>PRC BOA</strong>
                   </span>
@@ -568,11 +830,11 @@ export default function HomePage({
         <div style={{ marginBottom: '3rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
             <Library size={22} color="#ffc107" />
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>
               References & Reviewer Sources
             </h2>
           </div>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+          <p style={{ color: '#94a3b8', fontSize: '0.88rem', marginBottom: '1.5rem' }}>
             All 100 mock examination questions, mathematical solutions, and statutory citations are curated based on official Philippine standards and authoritative review literature:
           </p>
 

@@ -32,7 +32,7 @@ export default function Navbar({
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <span style={{ fontWeight: 900, letterSpacing: '0.5px' }}>CPALE Portal</span>
+              <span style={{ fontWeight: 900, letterSpacing: '0.5px' }}>Reviewer</span>
               <span style={{ fontSize: '0.65rem', background: '#ffc107', color: '#120a22', padding: '1px 6px', borderRadius: '4px', fontWeight: 800 }}>2026</span>
             </div>
             <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 500 }}>Personal Board Reviewer</div>
